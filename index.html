@@ -3,42 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Tamminaina — Product Engagement @ Wavity · Building Alex</title>
-  <meta name="description" content="Product Engagement at Wavity, selling agentic AI for ITSM, and building Alex, a Digital Employee. 5+ years in B2B SaaS with 185% quota attainment." />
+  <title>Sai Tamminaina — GTM and Product Engagement at Wavity · Building Alex</title>
+  <meta name="description" content="GTM operator and Product Engagement Specialist at Wavity. Outbound pipeline, GTM execution and full-cycle revenue growth. 5+ years in B2B SaaS, $1M+ revenue, 185% quota attainment. Building Alex, a Digital Employee." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sai Tamminaina — Product Engagement @ Wavity · Building Alex" />
-  <meta property="og:description" content="Product Engagement at Wavity, selling agentic AI for ITSM, and building Alex, a Digital Employee. 5+ years in B2B SaaS with 185% quota attainment." />
-  <meta property="og:image" content="profile-photo.png" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:title" content="Sai Tamminaina — GTM and Product Engagement at Wavity · Building Alex" />
+  <meta property="og:description" content="GTM operator and Product Engagement Specialist at Wavity. Outbound pipeline, GTM execution and full-cycle revenue growth. 5+ years in B2B SaaS, $1M+ revenue, 185% quota attainment. Building Alex, a Digital Employee." />
+  <meta property="og:image" content="profile-photo.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sai Tamminaina — Product Engagement @ Wavity · Building Alex" />
-  <meta name="twitter:description" content="Product Engagement at Wavity, selling agentic AI for ITSM, and building Alex, a Digital Employee. 5+ years in B2B SaaS with 185% quota attainment." />
-  <meta name="twitter:image" content="profile-photo.png" />
+  <meta name="twitter:title" content="Sai Tamminaina — GTM and Product Engagement at Wavity · Building Alex" />
+  <meta name="twitter:description" content="GTM operator and Product Engagement Specialist at Wavity. Outbound pipeline, GTM execution and full-cycle revenue growth. 5+ years in B2B SaaS, $1M+ revenue, 185% quota attainment. Building Alex, a Digital Employee." />
+  <meta name="twitter:image" content="profile-photo.jpg" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070d'/%3E%3Crect x='0.75' y='0.75' width='30.5' height='30.5' rx='7.25' fill='none' stroke='%235eead4' stroke-width='1.5'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Georgia,serif' font-size='12' font-weight='600' fill='%235eead4'%3EST%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #05070d;
-      --bg-elev: #0a0f1a;
-      --bg-card: rgba(16, 24, 40, 0.72);
-      --bg-card-solid: #101827;
-      --line: rgba(180, 210, 230, 0.12);
-      --line-strong: rgba(94, 234, 212, 0.28);
-      --text: #f4f7fb;
-      --muted: #8b97ad;
-      --soft: #c5d0e0;
+      --bg: #070b12;
+      --bg-elev: #0c121c;
+      --bg-card: #121a28;
+      --bg-card-hover: #172033;
+      --line: rgba(213, 222, 234, 0.12);
+      --line-strong: rgba(94, 234, 212, 0.42);
+      --text: #f5f7fb;
+      --soft: #d7deea;
+      --muted: #9aa8bc;
       --accent: #5eead4;
-      --accent-2: #7c9cff;
-      --accent-dim: rgba(94, 234, 212, 0.12);
-      --gold: #e8c17a;
+      --accent-deep: #2dd4bf;
+      --accent-dim: rgba(94, 234, 212, 0.14);
+      --ink: #04251f;
+      --gold: #f0c674;
+      --gold-dim: rgba(240, 198, 116, 0.12);
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
       --radius: 22px;
       --max: 1160px;
       --nav-h: 76px;
+      --measure: 58ch;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,8 +50,15 @@
       font-family: "Plus Jakarta Sans", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-size: 1.0625rem;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, .headline, .about-lead, .result, .tagline, .open-to {
+      text-wrap: balance;
+    }
+    .intro, .project-copy p, .work-card p, .lead, .job p, .job li, .edu-insights, .case dd, .job-summary {
+      text-wrap: pretty;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
@@ -63,7 +73,7 @@
       pointer-events: none;
       z-index: -2;
       overflow: hidden;
-      background: #05070d;
+      background: var(--bg);
     }
     .aurora span {
       position: absolute;
@@ -72,8 +82,8 @@
       opacity: 0.55;
       animation: drift 22s ease-in-out infinite alternate;
     }
-    .aurora .a { width: 520px; height: 520px; top: -160px; right: 8%; background: rgba(94, 234, 212, 0.22); }
-    .aurora .b { width: 620px; height: 620px; top: 8%; left: -180px; background: rgba(80, 110, 255, 0.18); animation-delay: -6s; }
+    .aurora .a { width: 520px; height: 520px; top: -160px; right: 8%; background: rgba(94, 234, 212, 0.26); }
+    .aurora .b { width: 620px; height: 620px; top: 8%; left: -180px; background: rgba(240, 198, 116, 0.10); animation-delay: -6s; }
     .aurora .c { width: 480px; height: 480px; top: 42%; right: -120px; background: rgba(232, 193, 122, 0.08); animation-delay: -11s; }
     .grid-overlay {
       position: fixed;
@@ -100,7 +110,7 @@
       z-index: 50;
       height: var(--nav-h);
       backdrop-filter: blur(20px) saturate(1.2);
-      background: rgba(5, 7, 13, 0.65);
+      background: rgba(7, 11, 18, 0.72);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
@@ -117,7 +127,22 @@
       text-decoration: none;
     }
     .logo em { font-style: normal; color: var(--accent); }
+    .nav-end { display: flex; align-items: center; gap: 10px; }
     nav.links { display: flex; align-items: center; gap: 2px; }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--ink);
+      box-shadow: 0 6px 18px rgba(94, 234, 212, 0.2);
+      transition: transform .18s ease, box-shadow .18s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(94, 234, 212, 0.32); }
     nav.links a {
       text-decoration: none;
       color: var(--soft);
@@ -146,7 +171,7 @@
       grid-template-columns: 1.15fr 0.85fr;
       gap: 72px;
       align-items: center;
-      padding: 100px 0 48px;
+      padding: 72px 0 32px;
     }
     .eyebrow {
       display: inline-flex;
@@ -157,7 +182,7 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
     .eyebrow::before {
       content: "";
@@ -167,13 +192,13 @@
     h1 {
       font-family: "Instrument Serif", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(3rem, 6vw, 5.1rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
+      font-size: clamp(3.15rem, 7vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
     }
     h1 .shine {
-      background: linear-gradient(120deg, #fff 0%, #d8fff6 40%, #c9d4ff 70%, #fff 100%);
+      background: linear-gradient(120deg, #ffffff 0%, #e9fffa 42%, #ffffff 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
@@ -191,6 +216,13 @@
       letter-spacing: -0.01em;
       margin-bottom: 8px;
     }
+    @media (max-width: 640px) {
+      .headline .head-break {
+        display: block;
+        font-size: 0;
+        line-height: 0;
+      }
+    }
     .subhead {
       color: var(--muted);
       font-size: 0.98rem;
@@ -202,14 +234,15 @@
       gap: 8px 16px;
       color: var(--muted);
       font-size: 0.9rem;
-      margin-bottom: 26px;
+      margin-bottom: 16px;
     }
     .meta-row span { display: inline-flex; align-items: center; gap: 7px; }
     .intro {
       color: var(--soft);
-      max-width: 58ch;
-      margin-bottom: 32px;
+      max-width: var(--measure);
+      margin-bottom: 12px;
       font-size: 1.02rem;
+      line-height: 1.6;
     }
     .intro strong { color: var(--text); font-weight: 650; }
     .cta { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -227,8 +260,8 @@
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      background: linear-gradient(180deg, #7af3df, var(--accent));
-      color: #04221c;
+      background: var(--accent);
+      color: var(--ink);
       box-shadow: 0 8px 28px rgba(94, 234, 212, 0.25);
     }
     .btn-primary:hover { box-shadow: 0 12px 32px rgba(94, 234, 212, 0.35); }
@@ -247,7 +280,7 @@
     .portrait-glow {
       position: absolute;
       inset: -30px;
-      background: radial-gradient(circle at 50% 50%, rgba(94,234,212,0.28), rgba(124,156,255,0.12) 45%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(94,234,212,0.32), rgba(240,198,116,0.12) 50%, transparent 70%);
       filter: blur(8px);
       z-index: -1;
     }
@@ -255,7 +288,7 @@
       position: relative;
       padding: 2px;
       border-radius: 32px;
-      background: linear-gradient(160deg, rgba(94,234,212,0.7), rgba(124,156,255,0.25) 45%, rgba(232,193,122,0.35));
+      background: linear-gradient(160deg, rgba(94,234,212,0.85), rgba(240,198,116,0.35));
       box-shadow: var(--shadow);
     }
     .portrait {
@@ -267,7 +300,7 @@
     .portrait-caption {
       position: absolute;
       left: 18px; bottom: 18px;
-      background: rgba(5, 7, 13, 0.78);
+      background: rgba(7, 11, 18, 0.82);
       border: 1px solid var(--line);
       backdrop-filter: blur(12px);
       border-radius: 999px;
@@ -276,29 +309,14 @@
       font-weight: 500;
       color: var(--soft);
     }
-    .portrait-badge {
-      position: absolute;
-      right: 18px; top: 18px;
-      background: rgba(5, 7, 13, 0.78);
-      border: 1px solid rgba(94,234,212,0.35);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.72rem;
-      font-weight: 650;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
-      padding: 8px 0 72px;
+      padding: 8px 0 48px;
     }
     .hstat {
-      background: rgba(16, 24, 40, 0.55);
+      background: var(--bg-card);
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 22px 18px 18px;
@@ -317,18 +335,18 @@
     section { padding: 72px 0; }
     .kicker {
       color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 650;
-      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 10px;
     }
     h2 {
       font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-size: clamp(2.15rem, 4vw, 3.35rem);
       font-weight: 400;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
     }
     .section-head { margin-bottom: 40px; max-width: 22em; }
 
@@ -377,14 +395,14 @@
       position: relative;
       padding: 2px;
       border-radius: 28px;
-      background: linear-gradient(135deg, rgba(94,234,212,0.45), rgba(124,156,255,0.28) 50%, rgba(232,193,122,0.18));
+      background: linear-gradient(135deg, rgba(94,234,212,0.5), rgba(240,198,116,0.22));
     }
     .project-inner {
       border-radius: 26px;
       background:
-        radial-gradient(800px 400px at 100% 0%, rgba(94,234,212,0.10), transparent 50%),
-        radial-gradient(600px 360px at 0% 100%, rgba(124,156,255,0.10), transparent 50%),
-        #0b1220;
+        radial-gradient(800px 400px at 100% 0%, rgba(94,234,212,0.12), transparent 50%),
+        radial-gradient(600px 360px at 0% 100%, rgba(240,198,116,0.07), transparent 50%),
+        var(--bg-elev);
       padding: 48px 48px 40px;
     }
     .project-top {
@@ -399,8 +417,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid rgba(232,193,122,0.35);
-      background: rgba(232,193,122,0.08);
+      border: 1px solid rgba(240,198,116,0.4);
+      background: var(--gold-dim);
       color: var(--gold);
       font-size: 0.75rem;
       font-weight: 700;
@@ -465,7 +483,7 @@
       transition: border-color .2s, transform .2s, background .2s;
       min-height: 160px;
     }
-    .stat:hover { border-color: var(--line-strong); transform: translateY(-3px); background: rgba(20, 30, 50, 0.8); }
+    .stat:hover { border-color: var(--line-strong); transform: translateY(-3px); background: var(--bg-card-hover); }
     .stat .num {
       font-family: "Instrument Serif", Georgia, serif;
       font-size: 2.15rem;
@@ -494,7 +512,7 @@
       backdrop-filter: blur(8px);
       transition: border-color .2s, transform .2s, background .2s;
     }
-    .job:hover { border-color: var(--line-strong); background: rgba(20, 30, 50, 0.8); }
+    .job:hover { border-color: var(--line-strong); background: var(--bg-card-hover); }
     .job::before {
       content: "";
       position: absolute;
@@ -561,8 +579,8 @@
       align-items: center;
       background:
         radial-gradient(600px 300px at 100% 0%, rgba(94,234,212,0.14), transparent 50%),
-        radial-gradient(500px 280px at 0% 100%, rgba(124,156,255,0.12), transparent 50%),
-        #0b1220;
+        radial-gradient(500px 280px at 0% 100%, rgba(240,198,116,0.08), transparent 50%),
+        var(--bg-elev);
     }
     .contact-card h2 { margin-bottom: 12px; }
     .contact-card p { color: var(--soft); max-width: 48ch; margin-bottom: 24px; }
@@ -587,7 +605,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-top: 18px;
+      margin-top: 14px;
       max-width: 440px;
       text-decoration: none;
       padding: 16px 18px 16px 20px;
@@ -672,13 +690,13 @@
       font-family: "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 13px;
       font-weight: 650;
-      fill: #eef3fb;
+      fill: var(--text);
     }
     .alex-diagram svg.diagram-mobile .node-label { font-size: 15px; }
     .hub-label {
       font-family: "Instrument Serif", Georgia, serif;
       font-size: 22px;
-      fill: #04221c;
+      fill: var(--ink);
       font-weight: 400;
     }
     .hub-sub {
@@ -686,7 +704,7 @@
       font-size: 8.5px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      fill: #04221c;
+      fill: var(--ink);
       opacity: 0.7;
     }
 
@@ -698,8 +716,8 @@
       padding: 48px 48px 40px;
       background:
         radial-gradient(600px 300px at 100% 0%, rgba(94,234,212,0.14), transparent 50%),
-        radial-gradient(500px 280px at 0% 100%, rgba(124,156,255,0.12), transparent 50%),
-        #0b1220;
+        radial-gradient(500px 280px at 0% 100%, rgba(240,198,116,0.08), transparent 50%),
+        var(--bg-elev);
     }
     .contact-strip h2 { margin-bottom: 10px; }
     .contact-strip .lead { color: var(--soft); max-width: 56ch; margin-bottom: 26px; }
@@ -717,8 +735,8 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: #04221c;
-      background: linear-gradient(180deg, #7af3df, var(--accent));
+      color: var(--ink);
+      background: var(--accent);
       box-shadow: 0 8px 24px rgba(94, 234, 212, 0.28);
       opacity: 0;
       pointer-events: none;
@@ -733,6 +751,97 @@
       .alex-diagram svg.diagram-mobile { display: block; }
     }
 
+
+    .open-to {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin: 0 0 16px;
+      max-width: 54ch;
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+    .open-to b {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(240,198,116,0.4);
+      background: var(--gold-dim);
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+
+    .employers {
+      padding: 8px 0 56px;
+    }
+    .employers .kicker { margin-bottom: 16px; }
+    .employer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      align-items: center;
+    }
+    .employer-row span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .work-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px 26px 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color .2s, transform .2s, background .2s;
+      min-height: 0;
+    }
+    .work-card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-3px);
+      background: var(--bg-card-hover);
+    }
+    .work-card .meta {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .work-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .work-card .result {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.7rem, 2.2vw, 2.15rem);
+      color: var(--gold);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 6px 0 4px;
+    }
+    .work-card p { color: var(--soft); font-size: 0.95rem; flex: 1; }
+    .work-card .tags { margin: 8px 0 0; }
+
+    @media (max-width: 980px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .nav-cta { padding: 8px 12px; }
+    }
+
     @media (max-width: 980px) {
       .hero, .about-grid, .contact-card, .contact-strip { grid-template-columns: 1fr; }
       .hero { padding: 56px 0 28px; gap: 36px; }
@@ -743,6 +852,7 @@
       .agent:last-child { flex-basis: 100%; }
             .project-inner, .contact-card, .contact-strip { padding: 32px 24px; }
       .menu-btn { display: inline-flex; }
+      .nav-end { margin-left: auto; gap: 8px; }
       nav.links {
         display: none;
         position: absolute;
@@ -764,7 +874,162 @@
       .job::before { left: -23px; }
       .timeline::before { left: 5px; }
       section { padding: 64px 0; }
-      h1 { font-size: 2.7rem; }
+      h1 { font-size: 2.85rem; }
+    }
+
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 70;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/png;base64,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");
+      background-size: 160px 160px;
+    }
+
+    .gtm-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .gtm-step {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      transition: border-color .2s, transform .2s, background .2s;
+    }
+    .gtm-step:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+    .gtm-step .n {
+      font-family: "Instrument Serif", Georgia, serif;
+      color: var(--gold);
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .gtm-step h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .gtm-step p {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .case {
+      display: grid;
+      gap: 12px;
+      margin: 6px 0 2px;
+    }
+    .case dt {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .case dd {
+      color: var(--soft);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .work-card.wide {
+      grid-column: 1 / -1;
+    }
+    .role-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 4px;
+    }
+    .role-block {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 16px 14px;
+    }
+    .role-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+    .role-block .when-sm {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .job-summary {
+      color: var(--soft);
+      font-size: 0.95rem;
+      margin: 2px 0 4px;
+    }
+    .job-more {
+      margin-top: 8px;
+    }
+    .job-more > summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 0.86rem;
+      font-weight: 650;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      user-select: none;
+    }
+    .job-more > summary::-webkit-details-marker { display: none; }
+    .job-more > summary::after {
+      content: "";
+      width: 6px; height: 6px;
+      border-right: 1.6px solid currentColor;
+      border-bottom: 1.6px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform .2s;
+      margin-top: -3px;
+    }
+    .job-more[open] > summary::after {
+      transform: rotate(225deg);
+      margin-top: 2px;
+    }
+
+    .skill-group { margin-bottom: 28px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .section-rule {
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(90deg, transparent, rgba(94,234,212,0.16), transparent) 1;
+    }
+
+    @media (max-width: 800px) {
+      .gtm-steps { grid-template-columns: 1fr 1fr; }
+      .role-split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .gtm-steps { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -775,17 +1040,19 @@
       .reveal { opacity: 1; transform: none; }
       .reveal.in { animation: none; }
       .btn:hover, .stat:hover, .job:hover, .skill:hover,
-      .alex-card:hover, .hstat:hover, .to-top:hover { transform: none; }
+      .alex-card:hover, .hstat:hover, .to-top:hover, .work-card:hover, .nav-cta:hover, .gtm-step:hover { transform: none; }
     }
   </style>
 </head>
 <body>
   <div class="aurora" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
   <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="#top">Sai <em>Tamminaina</em></a>
+      <div class="nav-end">
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
           <path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -794,35 +1061,38 @@
       <nav class="links" id="site-nav">
         <a href="#about">About</a>
         <a href="#alex">Alex</a>
-        <a href="#highlights">Highlights</a>
+        <a href="#work">GTM</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
+      <a class="nav-cta" href="mailto:sais@wavity.com">Email</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
     <section class="wrap hero">
       <div class="reveal">
-        <div class="eyebrow">Portfolio</div>
+        <div class="eyebrow">B2B SaaS · GTM</div>
         <h1><span class="shine">Sai<br>Tamminaina</span></h1>
-        <p class="headline">Product Engagement @ Wavity · Building agentic AI workers</p>
+        <p class="headline">Product Engagement at Wavity<span class="head-break"> · </span>GTM and agentic AI workers</p>
         <p class="subhead">ITSM · Service Management · Workflow Automation · B2B SaaS</p>
         <div class="meta-row">
           <span>📍 Visakhapatnam, Andhra Pradesh, India</span>
           <span>💼 Wavity Inc. · Full-time · On-site</span>
         </div>
-        <p class="intro">I sell agentic AI for ITSM at Wavity and build agentic AI workers — <strong>5+ years in B2B SaaS, 185% quota attainment.</strong></p>
+        <p class="intro">I own GTM end to end, from ICP to renewal, across US and international markets. I sell agentic AI for ITSM at Wavity, and I build agentic AI workers.<br /><strong>5+ years in B2B&nbsp;SaaS. $1M+ revenue generated. 185%&nbsp;quota attainment.</strong></p>
+        <p class="open-to"><b>Open to</b> SDR leadership, GTM, and senior outbound sales roles with US-facing SaaS companies.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="mailto:sais@wavity.com">Email Sai</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/ssai" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+          <a class="btn btn-primary" href="mailto:sais@wavity.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/ssai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <a class="alex-card" href="#alex">
           <span>
             <span class="k">See what I’m building</span>
-            <span class="t">Alex, a Digital Employee</span>
+            <span class="t">Alex, a Digital&nbsp;Employee</span>
           </span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
@@ -830,8 +1100,10 @@
       <div class="portrait-wrap reveal" style="animation-delay:.15s">
         <div class="portrait-glow" aria-hidden="true"></div>
         <div class="portrait-frame">
-          <img class="portrait" src="profile-photo.png" width="800" height="800" alt="Portrait of Sai Tamminaina" />
-          <div class="portrait-badge">In progress · Alex</div>
+          <picture>
+            <source srcset="profile-photo.webp" type="image/webp" />
+            <img class="portrait" src="profile-photo.jpg" width="800" height="800" alt="Portrait of Sai Tamminaina" />
+          </picture>
           <div class="portrait-caption">Product Engagement Specialist</div>
         </div>
       </div>
@@ -841,7 +1113,7 @@
       <div class="hero-stats reveal">
         <div class="hstat">
           <div class="num" data-count="5" data-prefix="" data-suffix="+">5+</div>
-          <div class="label">Years in sales</div>
+          <div class="label">Years in B2B SaaS</div>
         </div>
         <div class="hstat">
           <div class="num" data-count="1" data-prefix="$" data-suffix="M+">$1M+</div>
@@ -857,33 +1129,65 @@
         </div>
         <div class="hstat">
           <div class="num" data-meetings="true">15–22</div>
-          <div class="label">Meetings booked / month</div>
+          <div class="label">Qualified meetings a month</div>
         </div>
       </div>
     </div>
 
-    <section id="about">
+    <div class="wrap employers reveal">
+      <div class="kicker">Places I’ve worked</div>
+      <div class="employer-row">
+        <span>Wavity Inc.</span>
+        <span>Mercor</span>
+        <span>Launch Ventures</span>
+        <span>TDCX</span>
+        <span>Square Yards</span>
+        <span>BYJU’S</span>
+      </div>
+    </div>
+
+    <section id="about" class="section-rule">
       <div class="wrap">
-        <div class="kicker reveal">About</div>
-        <div class="section-head reveal"><h2>A closer look</h2></div>
+        <div class="kicker reveal">About · GTM</div>
+        <div class="section-head reveal"><h2>I own go-to-market, end to end</h2></div>
         <div class="about-grid">
-          <p class="about-lead reveal">Building outbound pipelines, booking qualified meetings, and owning GTM from ICP to renewal.</p>
+          <p class="about-lead reveal">From ICP definition to demo, close and renewal — across US and international markets.</p>
           <div class="about-copy reveal">
-            <p>What I actually do:</p>
             <ul class="about-list">
-              <li>Build outbound pipelines from scratch through cold calling, LinkedIn, and email</li>
-              <li>Book 15–22 qualified meetings per month consistently</li>
-              <li>Lead and coach sales teams — managed 12 reps at BYJU'S, promoted twice in 2 years</li>
-              <li>Own GTM end-to-end from ICP definition to demo to close to renewal</li>
+              <li>Build outbound pipelines from scratch — phone, LinkedIn and email</li>
+              <li>Book 15–22 qualified meetings a month</li>
+              <li>Led a team of 12 at BYJU'S and was promoted twice in two years</li>
+              <li>Run go-to-market end to end: ICP, demo, close and renewal</li>
             </ul>
-            <p>Most recently led GTM for TalkingShops and Looptic.ai at Launch Ventures UAE, acquiring 30+ clients with avg deal values of $499–$599.</p>
-            <p>Open to SDR leadership, GTM, and senior outbound sales roles with US-facing SaaS companies.</p>
+            <p>At Launch Ventures I led GTM for TalkingShops and Looptic.ai, bringing in 30+ clients at average deal values of $499–$599. Earlier I ran repeatable outbound for US SaaS clients as a freelance SDR, and used market and customer insight to sharpen go-to-market at Square Yards.</p>
+          </div>
+        </div>
+        <div class="gtm-steps reveal">
+          <div class="gtm-step">
+            <div class="n">01</div>
+            <h3>ICP definition</h3>
+            <p>Who we sell to, before the first outreach.</p>
+          </div>
+          <div class="gtm-step">
+            <div class="n">02</div>
+            <h3>Outbound pipeline</h3>
+            <p>Built from scratch — phone, LinkedIn and email.</p>
+          </div>
+          <div class="gtm-step">
+            <div class="n">03</div>
+            <h3>Demo and close</h3>
+            <p>Discovery, qualification and the path to a signed deal.</p>
+          </div>
+          <div class="gtm-step">
+            <div class="n">04</div>
+            <h3>Renewal</h3>
+            <p>The cycle does not stop at close.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="alex">
+    <section id="alex" class="section-rule">
       <div class="wrap">
         <div class="project reveal">
           <div class="project-inner">
@@ -891,11 +1195,11 @@
               <div class="kicker">Featured project</div>
               <div class="status">In progress</div>
             </div>
-            <h2>Building Alex, a Digital Employee</h2>
+            <h2>Building Alex, a Digital&nbsp;Employee</h2>
             <p class="tagline">Agentic AI workers that do real work for you.</p>
             <div class="project-copy">
-              <p>Alex is a Digital Employee — an agentic AI worker built to take on real work, not just answer questions. A team of specialized AI agents runs the operation together, the way a small product team would.</p>
-              <p>Wavity is Alex’s first customer. I also use AI agents to run my own outbound and LinkedIn prospecting workflows.</p>
+              <p>Alex is a Digital Employee: an agentic AI worker that takes on real work, not just questions. A team of specialist AI agents runs it the way a small product team would.</p>
+              <p>Wavity is Alex’s first customer. I also use AI agents to run my own outbound and LinkedIn prospecting.</p>
             </div>
             <figure class="alex-diagram">
               <svg class="diagram-desktop" viewBox="0 0 900 540" role="img" aria-labelledby="diag-title diag-desc">
@@ -904,7 +1208,7 @@
                 <defs>
                   <linearGradient id="spoke-grad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#5eead4" />
-                    <stop offset="100%" stop-color="#7c9cff" />
+                    <stop offset="100%" stop-color="#2dd4bf" />
                   </linearGradient>
                   <radialGradient id="hub-fill" cx="50%" cy="40%" r="70%">
                     <stop offset="0%" stop-color="#9af7e8" />
@@ -964,7 +1268,7 @@
                 <defs>
                   <linearGradient id="spoke-grad-m" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#5eead4" />
-                    <stop offset="100%" stop-color="#7c9cff" />
+                    <stop offset="100%" stop-color="#2dd4bf" />
                   </linearGradient>
                   <radialGradient id="hub-fill-m" cx="50%" cy="40%" r="70%">
                     <stop offset="0%" stop-color="#9af7e8" />
@@ -1026,39 +1330,161 @@
       </div>
     </section>
 
-    <section id="highlights">
+    <section id="work" class="section-rule">
       <div class="wrap">
-        <div class="kicker reveal">Highlights</div>
-        <div class="section-head reveal"><h2>Selected results</h2></div>
-        <div class="highlights">
-          <article class="stat reveal">
-            <div class="num">$139K+</div>
-            <div class="label">Revenue in two quarters at TDCX, exceeding targets by up to 185%</div>
-            <div class="source">Inside Sales Specialist, TDCX</div>
+        <div class="kicker reveal">Selected GTM work</div>
+        <div class="section-head reveal"><h2>The motion, and the numbers behind it</h2></div>
+        <div class="work-grid">
+
+          <article class="work-card reveal">
+            <div class="meta">Launch Ventures · GTM Consultant &amp; Business Development Lead · Sep 2025 — Apr 2026</div>
+            <h3>GTM for TalkingShops, Looptic.ai and Odoo ERP</h3>
+            <div class="result">30+ clients · 120% of target</div>
+            <dl class="case">
+              <div>
+                <dt>Situation</dt>
+                <dd>Take TalkingShops, Looptic.ai and Odoo ERP to market across the US, Europe and India.</dd>
+              </div>
+              <div>
+                <dt>What I did</dt>
+                <dd>Built targeted prospect lists and the outbound pipeline from scratch, ran the full cycle from discovery to close, drove renewals, and wrote repeatable sales sequences.</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>30+ clients at average deal values of $499–$599. Hit 120% of target across two performance cycles.</dd>
+              </div>
+            </dl>
+            <div class="tags">
+              <span class="tag">GTM</span>
+              <span class="tag">Outbound</span>
+              <span class="tag">US, Europe &amp; India</span>
+            </div>
           </article>
-          <article class="stat reveal">
-            <div class="num">₹2 Cr+</div>
-            <div class="label">Revenue closed at BYJU'S, leading a team of 10+ associates</div>
-            <div class="source">Business Development Manager, BYJU'S</div>
+
+          <article class="work-card reveal">
+            <div class="meta">TDCX · Inside Sales Specialist · Sep 2024 — Jun 2025</div>
+            <h3>LinkedIn Premium, North America and Europe</h3>
+            <div class="result">$139K+ in two quarters · up to 185% of target</div>
+            <dl class="case">
+              <div>
+                <dt>Situation</dt>
+                <dd>End-to-end SaaS sales for LinkedIn’s premium suite — Sales Navigator, Recruiter Lite and Business Premium — to individuals, start-ups and enterprises.</dd>
+              </div>
+              <div>
+                <dt>What I did</dt>
+                <dd>Ran the full funnel from discovery and qualification to demos and close. Used Salesforce and SalesLoft to build outreach cadences, track MRR, CAC and LTV, and forecast sales. Held one-to-one consultative calls and live chat.</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>Delivered $139K+ in revenue in two quarters, exceeded targets by as much as 185%, and was recognised internally for top performance.</dd>
+              </div>
+            </dl>
+            <div class="tags">
+              <span class="tag">SaaS sales</span>
+              <span class="tag">Salesforce &amp; SalesLoft</span>
+              <span class="tag">185% of target</span>
+            </div>
           </article>
-          <article class="stat reveal">
-            <div class="num">120%</div>
-            <div class="label">Of targets across two performance cycles at Launch Ventures</div>
-            <div class="source">Business Development Lead, Launch Ventures</div>
+
+          <article class="work-card reveal">
+            <div class="meta">Freelancer · Freelance SDR | B2B SaaS · Jun 2023 — Aug 2024</div>
+            <h3>US outbound for SaaS and B2B clients</h3>
+            <div class="result">Meetings with decision-makers · KPIs exceeded</div>
+            <dl class="case">
+              <div>
+                <dt>Situation</dt>
+                <dd>Build repeatable outbound for SaaS and B2B clients across US industries.</dd>
+              </div>
+              <div>
+                <dt>What I did</dt>
+                <dd>Prospected through LinkedIn Sales Navigator, targeted email campaigns and cold calls. Built and managed segmented lead lists with Apollo, ZoomInfo and other sales intelligence tools.</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>Booked appointments with decision-makers, consistently exceeded KPIs, and delivered high-quality SQLs.</dd>
+              </div>
+            </dl>
+            <div class="tags">
+              <span class="tag">Outbound</span>
+              <span class="tag">US markets</span>
+              <span class="tag">1 yr 3 mos</span>
+            </div>
           </article>
-          <article class="stat reveal">
-            <div class="num">12</div>
-            <div class="label">Reps managed at BYJU'S, with two promotions in two years</div>
-            <div class="source">From LinkedIn About</div>
+
+          <article class="work-card reveal">
+            <div class="meta">BYJU’S · Business Development Manager · Nov 2020 — Jan 2023</div>
+            <h3>Leading a sales team</h3>
+            <div class="result">₹2 Cr+ closed · promoted twice</div>
+            <dl class="case">
+              <div>
+                <dt>Situation</dt>
+                <dd>Consultative selling and product demonstrations for parents and students, and leading a sales team in Hyderabad.</dd>
+              </div>
+              <div>
+                <dt>What I did</dt>
+                <dd>Closed revenue through consultative selling and product demonstrations for parents and students. Led and motivated a team of 10+ sales associates, managed 12 reps, and was promoted twice in two years.</dd>
+              </div>
+              <div>
+                <dt>Result</dt>
+                <dd>₹2 Cr+ in revenue closed. The team earned performance bonuses.</dd>
+              </div>
+            </dl>
+            <div class="tags">
+              <span class="tag">Team leadership</span>
+              <span class="tag">Promoted twice</span>
+              <span class="tag">2 yrs 3 mos</span>
+            </div>
           </article>
+
+          <article class="work-card wide reveal">
+            <div class="meta">Mercor · Freelance · Remote · Apr 2026 — May 2026</div>
+            <h3>AI data quality and safety evaluation</h3>
+            <div class="role-split">
+              <div class="role-block">
+                <h4>AI Data Quality Analyst</h4>
+                <div class="when-sm">May 2026 · 1 mo · India</div>
+                <dl class="case">
+                  <div>
+                    <dt>What I did</dt>
+                    <dd>Audited AI-generated datasets by verifying recipe selections, ingredient lists, pricing data and constraint compliance in structured CSV and JSON files. Validated consistency across recipes, store inventories and surplus-tracking logic. Reviewed model workflows and tool-call sequences, ran quantitative checks, and evaluated tool outputs against defined schemas.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>Documented findings with evidence-based reasoning to support quality assurance and dataset reliability.</dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="role-block">
+                <h4>AI Safety &amp; Evaluation Contributor</h4>
+                <div class="when-sm">Apr 2026 — May 2026 · 2 mos · Hyderabad</div>
+                <dl class="case">
+                  <div>
+                    <dt>What I did</dt>
+                    <dd>Evaluated AI-generated responses for safety, accuracy and compliance with content and policy guidelines. Identified harmful, unsafe or policy-violating content, applied structured evaluation frameworks and scoring rubrics, and worked with reviewers and quality teams.</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>Gave clear, evidence-based feedback to improve model reliability and user safety, while staying consistent with calibration standards in a fast-paced setting.</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <div class="tags">
+              <span class="tag">AI evaluation</span>
+              <span class="tag">Data quality</span>
+              <span class="tag">AI safety</span>
+              <span class="tag">Remote</span>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="section-rule">
       <div class="wrap">
         <div class="kicker reveal">Experience</div>
-        <div class="section-head reveal"><h2>Career timeline</h2></div>
+        <div class="section-head reveal"><h2>The full timeline</h2></div>
         <div class="timeline">
 
           <article class="job reveal">
@@ -1089,14 +1515,18 @@
               <span class="tag">Remote</span>
               <span class="tag">India</span>
             </div>
-            <ul>
-              <li>Audited AI-generated datasets by verifying recipe selections, ingredient lists, pricing data, and constraint compliance using structured CSV and JSON files</li>
-              <li>Validated data consistency across multiple sources, including recipes, store inventories, and surplus tracking logic</li>
-              <li>Reviewed model workflows and tool-call sequences to identify logical errors and data integrity issues</li>
-              <li>Performed quantitative checks such as ingredient counts, cost calculations, and budget validation to ensure dataset accuracy</li>
-              <li>Evaluated tool outputs against defined schemas to confirm correct data structure and system behavior</li>
-              <li>Documented findings with evidence-based reasoning to support quality assurance and dataset reliability</li>
-            </ul>
+            <p class="job-summary">Audited AI-generated datasets and tool outputs for accuracy, consistency and schema compliance.</p>
+            <details class="job-more" open>
+              <summary>Full description</summary>
+              <ul>
+                <li>Audited AI-generated datasets by verifying recipe selections, ingredient lists, pricing data, and constraint compliance using structured CSV and JSON files</li>
+                <li>Validated data consistency across multiple sources, including recipes, store inventories, and surplus tracking logic</li>
+                <li>Reviewed model workflows and tool-call sequences to identify logical errors and data integrity issues</li>
+                <li>Performed quantitative checks such as ingredient counts, cost calculations, and budget validation to ensure dataset accuracy</li>
+                <li>Evaluated tool outputs against defined schemas to confirm correct data structure and system behavior</li>
+                <li>Documented findings with evidence-based reasoning to support quality assurance and dataset reliability</li>
+              </ul>
+            </details>
           </article>
 
           <article class="job reveal">
@@ -1112,14 +1542,18 @@
               <span class="tag">Remote</span>
               <span class="tag">Hyderabad</span>
             </div>
-            <ul>
-              <li>Evaluated AI-generated responses for safety, accuracy, and compliance with established content and policy guidelines</li>
-              <li>Identified harmful, unsafe, or policy-violating content across diverse task scenarios and flagged potential risks</li>
-              <li>Applied structured evaluation frameworks and scoring rubrics to assess response quality and reasoning alignment</li>
-              <li>Provided clear, evidence-based feedback to improve model reliability and user safety outcomes</li>
-              <li>Maintained consistency with calibration standards to ensure high-quality evaluation results in fast-paced environments</li>
-              <li>Collaborated with reviewers and quality teams to improve annotation quality and decision accuracy</li>
-            </ul>
+            <p class="job-summary">Evaluated model responses for safety, accuracy and policy compliance, and gave evidence-based feedback.</p>
+            <details class="job-more" open>
+              <summary>Full description</summary>
+              <ul>
+                <li>Evaluated AI-generated responses for safety, accuracy, and compliance with established content and policy guidelines</li>
+                <li>Identified harmful, unsafe, or policy-violating content across diverse task scenarios and flagged potential risks</li>
+                <li>Applied structured evaluation frameworks and scoring rubrics to assess response quality and reasoning alignment</li>
+                <li>Provided clear, evidence-based feedback to improve model reliability and user safety outcomes</li>
+                <li>Maintained consistency with calibration standards to ensure high-quality evaluation results in fast-paced environments</li>
+                <li>Collaborated with reviewers and quality teams to improve annotation quality and decision accuracy</li>
+              </ul>
+            </details>
           </article>
 
           <article class="job reveal">
@@ -1132,8 +1566,9 @@
             </div>
             <div class="tags">
               <span class="tag">Full-time</span>
+              <span class="tag">GTM</span>
             </div>
-            <p>Led go-to-market execution for TalkingShops and Looptic.ai — acquired 30+ clients, managed full sales cycle from discovery to close, avg deal value $499–$599. Built outbound pipeline, drove renewals, and developed repeatable sales sequences from scratch.</p>
+            <p>Led go-to-market execution for TalkingShops and Looptic.ai: acquired 30+ clients, managed the full sales cycle from discovery to close, average deal value $499–$599. Built the outbound pipeline, drove renewals, and developed repeatable sales sequences from scratch.</p>
           </article>
 
           <article class="job reveal">
@@ -1147,8 +1582,9 @@
             <div class="tags">
               <span class="tag">Hybrid</span>
               <span class="tag">Hyderabad</span>
+              <span class="tag">GTM</span>
             </div>
-            <p>Led outbound sales for Odoo ERP, TalkingShops, and Looptic.ai across US, Europe, and India. Built targeted prospect lists, managed pipeline, and achieved 120% of targets across two performance cycles.</p>
+            <p>Led outbound sales for Odoo ERP, TalkingShops, and Looptic.ai across the US, Europe, and India. Built targeted prospect lists, managed the pipeline, and achieved 120% of targets across two performance cycles.</p>
           </article>
 
           <article class="job reveal">
@@ -1164,14 +1600,17 @@
               <span class="tag">On-site</span>
               <span class="tag">Hyderabad, Telangana, India</span>
             </div>
-            <p>SaaS Sales | LinkedIn Premium | North America &amp; Europe</p>
-            <ul>
-              <li>Spearheading end-to-end SaaS sales for LinkedIn’s premium suite (Sales Navigator, Recruiter Lite, Business Premium), driving client success across diverse industries and geographies.</li>
-              <li>Mastered the full sales funnel from discovery and qualification to personalized demos and conversion, catering to individual professionals, startups, and enterprise clients.</li>
-              <li>Leveraged Salesforce and SalesLoft to build intelligent outreach cadences, track pipeline KPIs (MRR, CAC, LTV), and forecast sales trends.</li>
-              <li>Delivered $139K+ in revenue within just two quarters, while exceeding targets by up to 185%, earning internal accolades for top performance.</li>
-              <li>Conducted 1:1 consultative sales calls and live chat interactions, crafting tailored solutions to address client-specific growth and hiring challenges.</li>
-            </ul>
+            <p class="job-summary">SaaS sales · LinkedIn Premium · North America and Europe. $139K+ in two quarters, up to 185% of target.</p>
+            <details class="job-more">
+              <summary>Full description</summary>
+              <ul>
+                <li>Spearheaded end-to-end SaaS sales for LinkedIn’s premium suite (Sales Navigator, Recruiter Lite, Business Premium), driving client success across diverse industries and geographies.</li>
+                <li>Mastered the full sales funnel from discovery and qualification to personalized demos and conversion, catering to individual professionals, startups, and enterprise clients.</li>
+                <li>Leveraged Salesforce and SalesLoft to build intelligent outreach cadences, track pipeline KPIs (MRR, CAC, LTV), and forecast sales trends.</li>
+                <li>Delivered $139K+ in revenue within just two quarters, while exceeding targets by up to 185%, earning internal accolades for top performance.</li>
+                <li>Conducted 1:1 consultative sales calls and live chat interactions, crafting tailored solutions to address client-specific growth and hiring challenges.</li>
+              </ul>
+            </details>
           </article>
 
           <article class="job reveal">
@@ -1187,12 +1626,16 @@
               <span class="tag">Remote</span>
               <span class="tag">United States</span>
             </div>
-            <ul>
-              <li>Prospected leads via LinkedIn Sales Navigator, targeted email campaigns, and cold calls across diverse U.S. industries.</li>
-              <li>Created and managed segmented lead lists using Apollo, ZoomInfo, and other sales intelligence tools.</li>
-              <li>Successfully booked appointments with decision-makers and consistently exceeded KPIs.</li>
-              <li>Delivered high-quality SQLs for SaaS and B2B clients, building repeatable outbound processes.</li>
-            </ul>
+            <p class="job-summary">US outbound for SaaS and B2B clients: prospecting, SQLs, and repeatable processes.</p>
+            <details class="job-more">
+              <summary>Full description</summary>
+              <ul>
+                <li>Prospected leads via LinkedIn Sales Navigator, targeted email campaigns, and cold calls across diverse U.S. industries.</li>
+                <li>Created and managed segmented lead lists using Apollo, ZoomInfo, and other sales intelligence tools.</li>
+                <li>Successfully booked appointments with decision-makers and consistently exceeded KPIs.</li>
+                <li>Delivered high-quality SQLs for SaaS and B2B clients, building repeatable outbound processes.</li>
+              </ul>
+            </details>
           </article>
 
           <article class="job reveal">
@@ -1207,12 +1650,16 @@
               <span class="tag">Full-time</span>
               <span class="tag">Hyderabad, Telangana, India</span>
             </div>
-            <ul>
-              <li>Directed real estate sales and territory management strategies for Square Yards, a leading proptech firm in India.</li>
-              <li>Built and led a high-performance sales team, consistently exceeding monthly and quarterly KPIs.</li>
-              <li>Analyzed market dynamics and customer insights to enhance go-to-market strategies and boost conversion rates.</li>
-              <li>Fostered cross-functional collaboration among sales, marketing, and operations teams for seamless deal closures.</li>
-            </ul>
+            <p class="job-summary">Territory sales for a leading Indian proptech firm, including go-to-market work that lifted conversion.</p>
+            <details class="job-more">
+              <summary>Full description</summary>
+              <ul>
+                <li>Directed real estate sales and territory management strategies for Square Yards, a leading proptech firm in India.</li>
+                <li>Built and led a high-performance sales team, consistently exceeding monthly and quarterly KPIs.</li>
+                <li>Analyzed market dynamics and customer insights to enhance go-to-market strategies and boost conversion rates.</li>
+                <li>Fostered cross-functional collaboration among sales, marketing, and operations teams for seamless deal closures.</li>
+              </ul>
+            </details>
           </article>
 
           <article class="job reveal">
@@ -1237,66 +1684,82 @@
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section-rule">
       <div class="wrap">
         <div class="kicker reveal">Skills</div>
-        <div class="section-head reveal"><h2>What I work with</h2></div>
-        <div class="skills reveal">
-          <span class="skill">Decision-Making</span>
-          <span class="skill">Business-to-Business (B2B)</span>
-          <span class="skill">Team Leadership</span>
-          <span class="skill">Cold Calling</span>
-          <span class="skill">Teamwork</span>
-          <span class="skill">Account Management</span>
-          <span class="skill">Sales Processes</span>
-          <span class="skill">Leadership &amp; Team Mentorship</span>
-          <span class="skill">Public Speaking &amp; Client Engagement</span>
-          <span class="skill">Communication</span>
-          <span class="skill">Sales Cadence &amp; Funnel Optimization</span>
-          <span class="skill">Customer Retention &amp; Upselling</span>
-          <span class="skill">Cross-Functional Team Collaboration</span>
-          <span class="skill">KPI Tracking &amp; Metrics-Driven Execution</span>
-          <span class="skill">Objection Handling &amp; Negotiation</span>
-          <span class="skill">Product Demos &amp; Discovery Calls</span>
-          <span class="skill">MySQL, Linux, VMware, Windows &amp; Mac OS</span>
-          <span class="skill">Excel (Advanced), PowerPoint, Office 365</span>
-          <span class="skill">LinkedIn Sales Navigator &amp; Recruiter Lite</span>
-          <span class="skill">Salesforce CRM | LeadSquared | SalesLoft | Tableau</span>
-          <span class="skill">Strategic Partnerships &amp; Key Account Growth</span>
-          <span class="skill">GTM (Go-to-Market) Strategy Execution</span>
-          <span class="skill">Revenue Forecasting &amp; Pipeline Management</span>
-          <span class="skill">Outbound Cold Calling &amp; Email Campaigns</span>
-          <span class="skill">Consultative &amp; Solution-Based Selling</span>
-          <span class="skill">Lead Generation &amp; Qualification</span>
-          <span class="skill">Full Sales Cycle Management</span>
-          <span class="skill">B2B &amp; B2C SaaS Sales</span>
-          <span class="skill">Product Service</span>
-          <span class="skill">Outside Sales</span>
-          <span class="skill">Consultative Selling</span>
+        <div class="section-head reveal"><h2>How I sell and operate</h2></div>
+
+        <div class="skill-group reveal">
+          <h3>Go-to-market</h3>
+          <div class="skills">
+            <span class="skill">GTM (Go-to-Market) Strategy Execution</span>
+            <span class="skill">Outbound Cold Calling &amp; Email Campaigns</span>
+            <span class="skill">Lead Generation &amp; Qualification</span>
+            <span class="skill">Full Sales Cycle Management</span>
+            <span class="skill">Sales Cadence &amp; Funnel Optimization</span>
+            <span class="skill">Revenue Forecasting &amp; Pipeline Management</span>
+            <span class="skill">Consultative &amp; Solution-Based Selling</span>
+            <span class="skill">Consultative Selling</span>
+            <span class="skill">Product Demos &amp; Discovery Calls</span>
+            <span class="skill">Objection Handling &amp; Negotiation</span>
+            <span class="skill">Cold Calling</span>
+            <span class="skill">Sales Processes</span>
+            <span class="skill">B2B &amp; B2C SaaS Sales</span>
+            <span class="skill">Outside Sales</span>
+            <span class="skill">Customer Retention &amp; Upselling</span>
+            <span class="skill">Product Service</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>Leadership</h3>
+          <div class="skills">
+            <span class="skill">Team Leadership</span>
+            <span class="skill">Leadership &amp; Team Mentorship</span>
+            <span class="skill">Decision-Making</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Cross-Functional Team Collaboration</span>
+            <span class="skill">Public Speaking &amp; Client Engagement</span>
+            <span class="skill">Communication</span>
+            <span class="skill">KPI Tracking &amp; Metrics-Driven Execution</span>
+            <span class="skill">Strategic Partnerships &amp; Key Account Growth</span>
+            <span class="skill">Account Management</span>
+            <span class="skill">Business-to-Business (B2B)</span>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>Tools</h3>
+          <div class="skills">
+            <span class="skill">Salesforce CRM | LeadSquared | SalesLoft | Tableau</span>
+            <span class="skill">LinkedIn Sales Navigator &amp; Recruiter Lite</span>
+            <span class="skill">Excel (Advanced), PowerPoint, Office 365</span>
+            <span class="skill">MySQL, Linux, VMware, Windows &amp; Mac OS</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="education">
+    <section id="education" class="section-rule">
       <div class="wrap">
         <div class="kicker reveal">Education</div>
-        <div class="section-head reveal"><h2>Academic background</h2></div>
+        <div class="section-head reveal"><h2>Where I studied</h2></div>
         <article class="edu-card reveal">
           <h3>GITAM Deemed University</h3>
           <div class="edu-meta">Jun 2016 — May 2019</div>
-          <p class="edu-insights">Coursework and skills noted on profile: MySQL, Linux, VMware, Windows &amp; Mac OS and Communication.</p>
+          <p class="edu-insights">Coursework noted on the profile: MySQL, Linux, VMware, Windows and Mac OS, and Communication.</p>
         </article>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section-rule">
       <div class="wrap">
         <div class="contact-strip reveal">
           <div class="kicker">Contact</div>
-          <h2>Let’s talk</h2>
-          <p class="lead">Open to conversations about SDR leadership, GTM, and senior outbound sales roles with US-facing SaaS companies — and about Alex, the Digital Employee I’m building.</p>
+          <h2>Let’s talk GTM.</h2>
+          <p class="lead">Open to SDR leadership, GTM and senior outbound roles with US-facing SaaS companies — and to conversations about Alex.</p>
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:sais@wavity.com">Email — sais@wavity.com</a>
+            <a class="btn btn-primary" href="mailto:sais@wavity.com">sais@wavity.com</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/ssai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <div class="contact-loc">📍 Visakhapatnam, Andhra Pradesh, India · IT Services and IT Consulting</div>
@@ -1307,7 +1770,7 @@
 
   <footer class="wrap">
     <div>© 2026 Sai Tamminaina</div>
-    <div>Built from public LinkedIn profile data</div>
+    <div>Sourced from a public LinkedIn profile</div>
   </footer>
 
   <a class="to-top" href="#top" aria-label="Back to top">
