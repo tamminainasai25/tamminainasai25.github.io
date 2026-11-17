@@ -697,6 +697,289 @@
       opacity: 0.7;
     }
 
+
+    /* ---- Agentic mode diagram ---- */
+    .agentic-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1.62fr) minmax(300px, 1fr);
+      gap: 22px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .agentic-stage .alex-diagram { margin: 0; min-width: 0; }
+    .agentic-stage { scroll-margin-top: calc(var(--nav-h) + 10px); }
+    .spoke { transition: stroke-width .35s ease; }
+    .spoke.hot { stroke-width: 2.4; stroke-dasharray: none; animation: hotSpoke 1.2s ease-in-out infinite; }
+    @keyframes hotSpoke { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+    .orbit {
+      fill: none;
+      stroke: rgba(94, 234, 212, 0.38);
+      stroke-width: 1;
+      stroke-dasharray: 2 7;
+      stroke-linecap: round;
+    }
+    .orbit-spin {
+      transform-box: view-box;
+      animation: orbitSpin 18s linear infinite;
+    }
+    .orbit-spin.rev { animation-duration: 26s; animation-direction: reverse; }
+    @keyframes orbitSpin { to { transform: rotate(360deg); } }
+    .orbit-sat { fill: #eafffb; filter: drop-shadow(0 0 5px #5eead4); }
+    .node .node-core, .mnode .node-core { transition: fill .3s ease, stroke-width .3s ease; }
+    .node .node-label, .mnode .node-label { transition: fill .3s ease; }
+    .node.active .node-core, .mnode.active .node-core { fill: #5eead4; stroke: #eafffb; stroke-width: 2.2; }
+    .node.active .node-label, .mnode.active .node-label { fill: var(--accent); }
+    .mnode .pill { transition: stroke .3s ease, fill .3s ease; }
+    .mnode.active .pill { stroke: rgba(94, 234, 212, 0.75); fill: #0f1d26; }
+    .ping {
+      fill: none;
+      stroke: #5eead4;
+      stroke-width: 1.6;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .active > .ping { animation: ping 1.4s cubic-bezier(.2,.7,.2,1) infinite; }
+    .active > .ping.p2 { animation-delay: .45s; }
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(3.2); opacity: 0; }
+    }
+    .hub.active > .ping { animation-name: pingHub; }
+    @keyframes pingHub {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .node-status {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      fill: var(--accent);
+      stroke: #0c121c;
+      stroke-width: 5px;
+      stroke-linejoin: round;
+      paint-order: stroke;
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+    .diagram-mobile .node-status { font-size: 12px; }
+    .active > .node-status { opacity: 1; }
+    .hub-sub { transition: opacity .3s ease; }
+    .packet-head { fill: #f2fffc; }
+    .packet-trail { fill: #5eead4; }
+    .agentic-paused .orbit-spin, .agentic-paused .ping, .agentic-paused .spoke,
+    .agentic-paused .hub-ring, .agentic-paused .hub-glow, .agentic-paused .live-dot,
+    .agentic-paused .log-cursor { animation-play-state: paused !important; }
+
+    .agent-log {
+      position: relative;
+      border: 1px solid rgba(94, 234, 212, 0.22);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(94, 234, 212, 0.05), transparent 40%),
+        rgba(5, 9, 15, 0.82);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    .log-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(213, 222, 234, 0.08);
+      font-size: 0.74rem;
+      color: var(--soft);
+    }
+    .log-dots { display: inline-flex; gap: 5px; margin-right: 4px; }
+    .log-dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(213, 222, 234, 0.16); }
+    .log-title { font-weight: 600; letter-spacing: 0.02em; }
+    .log-live {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+    }
+    .live-dot {
+      position: relative;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .log-body {
+      height: 336px;
+      padding: 14px 16px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 7px;
+      overflow: hidden;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      color: var(--soft);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%);
+              mask-image: linear-gradient(180deg, transparent 0, #000 22%);
+    }
+    .log-line { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; }
+    .log-line .ts { color: #5d6b80; }
+    .log-line .who { color: var(--accent); }
+    .log-line .who.alex { color: var(--gold); }
+    .log-line .msg { color: var(--soft); }
+    .log-line .ok { color: #86efac; }
+    .log-cursor {
+      display: inline-block;
+      width: 7px; height: 1.05em;
+      margin-left: 2px;
+      vertical-align: -0.18em;
+      background: var(--accent);
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .log-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 16px 12px;
+      border-top: 1px solid rgba(213, 222, 234, 0.08);
+      font-size: 0.66rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 1100px) {
+      .agentic-stage { grid-template-columns: 1fr; }
+      .agentic-stage .alex-diagram { max-width: 720px; width: 100%; justify-self: center; }
+      .agent-log { max-width: 640px; width: 100%; justify-self: center; }
+      .log-body { height: 250px; }
+    }
+    @media (max-width: 800px) {
+      .agentic-stage { gap: 16px; }
+      .log-body { height: 206px; font-size: 0.7rem; padding: 12px 13px 8px; gap: 5px; }
+      .log-head { padding: 11px 13px; }
+      .log-foot { padding: 9px 13px 11px; }
+      .log-line { column-gap: 8px; }
+    }
+
+
+    /* ---- See Alex work (interactive simulated run) ---- */
+    .tryit {
+      margin: 0 0 20px;
+      padding: 18px 20px 18px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(94, 234, 212, 0.06), rgba(255, 255, 255, 0.015));
+    }
+    .tryit-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 16px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tryit-title { font-weight: 700; font-size: 1.02rem; color: var(--text); letter-spacing: -0.01em; }
+    .tryit-title span { color: var(--muted); font-weight: 500; font-size: 0.9rem; margin-left: 8px; }
+    .sim-note {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.68rem; letter-spacing: 0.04em; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px;
+    }
+    .sim-note::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: .8; }
+    .task-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .chip {
+      font: inherit; font-size: 0.85rem; font-weight: 600;
+      color: var(--soft);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(213, 222, 234, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, color .2s, transform .2s;
+    }
+    .chip:hover { border-color: var(--line-strong); color: var(--text); transform: translateY(-1px); }
+    .chip[aria-pressed="true"] { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+    .chip:focus-visible, .tryit-input:focus-visible, .tryit-run:focus-visible, .rr-again:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 2px;
+    }
+    .tryit-form { display: flex; gap: 8px; }
+    .tryit-input {
+      flex: 1; min-width: 0;
+      font: inherit; font-size: 0.92rem; color: var(--text);
+      background: rgba(5, 9, 15, 0.8);
+      border: 1px solid rgba(213, 222, 234, 0.16);
+      border-radius: 999px;
+      padding: 11px 16px;
+      transition: border-color .2s;
+    }
+    .tryit-input::placeholder { color: #6b7a90; }
+    .tryit-input:focus { border-color: var(--accent); }
+    .tryit-run {
+      font: inherit; font-size: 0.9rem; font-weight: 700;
+      color: var(--ink); background: var(--accent);
+      border: 0; border-radius: 999px;
+      padding: 11px 20px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(94, 234, 212, 0.22);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .tryit-run:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(94, 234, 212, 0.34); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .log-live.running { color: var(--gold); }
+    .log-live.running .live-dot { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+    .log-line .who.you { color: #f5f7fb; }
+    .log-line .msg.sub { color: var(--muted); }
+    .run-result {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 336px;
+      padding: 16px 18px 14px;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+    .agent-log.done .log-body { display: none; }
+    .agent-log.done .run-result { display: flex; animation: rise .5s cubic-bezier(.2,.7,.2,1) both; }
+    .rr-badge {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #86efac; background: rgba(134, 239, 172, 0.1);
+      border: 1px solid rgba(134, 239, 172, 0.35);
+      border-radius: 999px; padding: 5px 11px;
+    }
+    .rr-task { color: var(--text); font-weight: 650; font-size: 1rem; line-height: 1.35; overflow-wrap: anywhere; }
+    .rr-steps { list-style: none; display: grid; gap: 5px; margin: 2px 0 0; padding: 0; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.72rem; color: var(--soft); }
+    .rr-steps li { display: grid; grid-template-columns: 16px 1fr; gap: 6px; }
+    .rr-steps li::before { content: "✓"; color: var(--accent); }
+    .rr-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+    .rr-meta { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.68rem; color: var(--muted); }
+    .rr-again {
+      font: inherit; font-size: 0.82rem; font-weight: 700;
+      color: var(--accent); background: transparent;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 8px 14px; cursor: pointer;
+      transition: background .2s;
+    }
+    .rr-again:hover { background: var(--accent-dim); }
+    @media (max-width: 1100px) {
+      .run-result { min-height: 250px; }
+    }
+    @media (max-width: 800px) {
+      .tryit { padding: 14px 14px 14px; margin-bottom: 14px; }
+      .tryit-title span { display: block; margin: 2px 0 0; }
+      .task-chips {
+        flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+        margin: 0 -14px 12px; padding: 2px 14px;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 28px), transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 28px), transparent 100%);
+      }
+      .task-chips::-webkit-scrollbar { display: none; }
+      .chip { font-size: 0.8rem; padding: 7px 12px; white-space: nowrap; flex: 0 0 auto; }
+      .tryit-head { margin-bottom: 10px; }
+      .tryit-input { font-size: 16px; padding: 10px 14px; }
+      .tryit-run { padding: 10px 16px; }
+      .run-result { min-height: 0; padding: 14px 14px 12px; }
+    }
+
     .contact-strip {
       position: relative;
       overflow: hidden;
@@ -1026,6 +1309,10 @@
       .aurora span, h1 .shine, .status::before, .shine,
       .spoke, .hub-ring, .hub-glow { animation: none !important; }
       .spoke { stroke-dasharray: none; opacity: 0.5; }
+      .orbit-spin, .ping, .live-dot, .log-cursor, .spoke.hot { animation: none !important; }
+      .ping { display: none; }
+      .agent-log.done .run-result { animation: none; }
+      .chip:hover, .tryit-run:hover { transform: none; }
       .reveal { opacity: 1; transform: none; }
       .reveal.in { animation: none; }
       .btn:hover, .stat:hover, .job:hover, .skill:hover,
@@ -1190,8 +1477,27 @@
               <p>Alex is a Digital Employee: an agentic AI worker that takes on real work, not just questions. A team of specialist AI agents runs it the way a small product team would.</p>
               <p>I also use AI agents to run my own outbound and LinkedIn prospecting.</p>
             </div>
+            <div class="tryit" id="tryit">
+              <div class="tryit-head">
+                <div class="tryit-title" id="tryit-title">See Alex work <span>Pick a task or type your own.</span></div>
+                <div class="sim-note">Simulated run · illustrative</div>
+              </div>
+              <div class="task-chips" role="group" aria-labelledby="tryit-title">
+                <button type="button" class="chip" data-task="Build a login page" aria-pressed="false">Build a login page</button>
+                <button type="button" class="chip" data-task="Fix a checkout bug" aria-pressed="false">Fix a checkout bug</button>
+                <button type="button" class="chip" data-task="Add a pricing page" aria-pressed="false">Add a pricing page</button>
+                <button type="button" class="chip" data-task="Find product gaps from feedback" aria-pressed="false">Find product gaps from feedback</button>
+              </div>
+              <form class="tryit-form" id="tryit-form" autocomplete="off">
+                <label class="sr-only" for="tryit-input">Type your own task for Alex</label>
+                <input class="tryit-input" id="tryit-input" type="text" maxlength="60" placeholder="Or type a task, e.g. add dark mode" />
+                <button type="submit" class="tryit-run">Run ▸</button>
+              </form>
+              <p class="sr-only" id="tryit-announce" aria-live="polite"></p>
+            </div>
+            <div class="agentic-stage" id="agentic-stage">
             <figure class="alex-diagram">
-              <svg class="diagram-desktop" viewBox="0 0 900 540" role="img" aria-labelledby="diag-title diag-desc">
+              <svg class="diagram-desktop" viewBox="70 8 724 524" role="img" aria-labelledby="diag-title diag-desc">
                 <title id="diag-title">Alex’s agent team</title>
                 <desc id="diag-desc">Alex at the center, connected to Manager, Planner, Engineers, Code Reviewer, QA, Designer, and Product Gap Finder.</desc>
                 <defs>
@@ -1207,51 +1513,88 @@
                     <feGaussianBlur stdDeviation="8" result="b"/>
                     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                   </filter>
+                  <filter id="pglow" x="-200%" y="-200%" width="500%" height="500%">
+                    <feGaussianBlur stdDeviation="2.4" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
                 </defs>
-                <line class="spoke" x1="450" y1="270" x2="450.01" y2="65" style="animation-delay: 0s" />
-                <line class="spoke" x1="450" y1="270" x2="610.3" y2="142.2" style="animation-delay: -.4s" />
-                <line class="spoke" x1="450" y1="270" x2="649.9" y2="315.6" style="animation-delay: -.8s" />
-                <line class="spoke" x1="450" y1="270" x2="538.9" y2="454.7" style="animation-delay: -1.2s" />
-                <line class="spoke" x1="450" y1="270" x2="361.1" y2="454.7" style="animation-delay: -1.6s" />
-                <line class="spoke" x1="450" y1="270" x2="250.1" y2="315.6" style="animation-delay: -2s" />
-                <line class="spoke" x1="450" y1="270" x2="289.7" y2="142.2" style="animation-delay: -2.4s" />
+                <line class="spoke" data-to="manager" x1="450" y1="270" x2="450.01" y2="65" style="animation-delay: 0s" />
+                <line class="spoke" data-to="planner" x1="450" y1="270" x2="610.3" y2="142.2" style="animation-delay: -.4s" />
+                <line class="spoke" data-to="engineers" x1="450" y1="270" x2="649.9" y2="315.6" style="animation-delay: -.8s" />
+                <line class="spoke" data-to="reviewer" x1="450" y1="270" x2="538.9" y2="454.7" style="animation-delay: -1.2s" />
+                <line class="spoke" data-to="qa" x1="450" y1="270" x2="361.1" y2="454.7" style="animation-delay: -1.6s" />
+                <line class="spoke" data-to="designer" x1="450" y1="270" x2="250.1" y2="315.6" style="animation-delay: -2s" />
+                <line class="spoke" data-to="gap" x1="450" y1="270" x2="289.7" y2="142.2" style="animation-delay: -2.4s" />
 
-                <g class="node">
+                <g class="node" data-node="manager">
+                  <circle class="ping" cx="450" cy="65" r="9"/>
+                  <circle class="ping p2" cx="450" cy="65" r="9"/>
+                  <text class="node-status" x="470" y="70" text-anchor="start"></text>
                   <circle class="node-core" cx="450" cy="65" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="450" y="42" text-anchor="middle">Manager</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="planner">
+                  <circle class="ping" cx="610.3" cy="142.2" r="9"/>
+                  <circle class="ping p2" cx="610.3" cy="142.2" r="9"/>
+                  <text class="node-status" x="628" y="164" text-anchor="start"></text>
                   <circle class="node-core" cx="610.3" cy="142.2" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="628" y="147" text-anchor="start">Planner</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="engineers">
+                  <circle class="ping" cx="649.9" cy="315.6" r="9"/>
+                  <circle class="ping p2" cx="649.9" cy="315.6" r="9"/>
+                  <text class="node-status" x="668" y="337" text-anchor="start"></text>
                   <circle class="node-core" cx="649.9" cy="315.6" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="668" y="320" text-anchor="start">Engineers</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="reviewer">
+                  <circle class="ping" cx="538.9" cy="454.7" r="9"/>
+                  <circle class="ping p2" cx="538.9" cy="454.7" r="9"/>
+                  <text class="node-status" x="538.9" y="503" text-anchor="middle"></text>
                   <circle class="node-core" cx="538.9" cy="454.7" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="538.9" y="486" text-anchor="middle">Code Reviewer</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="qa">
+                  <circle class="ping" cx="361.1" cy="454.7" r="9"/>
+                  <circle class="ping p2" cx="361.1" cy="454.7" r="9"/>
+                  <text class="node-status" x="361.1" y="503" text-anchor="middle"></text>
                   <circle class="node-core" cx="361.1" cy="454.7" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="361.1" y="486" text-anchor="middle">QA</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="designer">
+                  <circle class="ping" cx="250.1" cy="315.6" r="9"/>
+                  <circle class="ping p2" cx="250.1" cy="315.6" r="9"/>
+                  <text class="node-status" x="232" y="337" text-anchor="end"></text>
                   <circle class="node-core" cx="250.1" cy="315.6" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="232" y="320" text-anchor="end">Designer</text>
                 </g>
-                <g class="node">
+                <g class="node" data-node="gap">
+                  <circle class="ping" cx="289.7" cy="142.2" r="9"/>
+                  <circle class="ping p2" cx="289.7" cy="142.2" r="9"/>
+                  <text class="node-status" x="272" y="164" text-anchor="end"></text>
                   <circle class="node-core" cx="289.7" cy="142.2" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.6"/>
                   <text class="node-label" x="272" y="147" text-anchor="end">Product Gap Finder</text>
                 </g>
 
-                <circle class="hub-glow" cx="450" cy="270" r="56" fill="#5eead4" opacity="0.16" filter="url(#softglow)"/>
-                <circle class="hub-ring" cx="450" cy="270" r="48" />
-                <circle cx="450" cy="270" r="40" fill="url(#hub-fill)"/>
-                <text class="hub-label" x="450" y="277" text-anchor="middle">Alex</text>
+                <g class="packets" data-packets></g>
+                <g class="orbit-spin" style="transform-origin: 450px 270px">
+                  <circle class="orbit" cx="450" cy="270" r="64"/>
+                  <circle class="orbit-sat" cx="514" cy="270" r="2.6"/>
+                </g>
+                <g class="orbit-spin rev" style="transform-origin: 450px 270px">
+                  <circle class="orbit-sat" cx="450" cy="194" r="1.8" opacity="0.8"/>
+                </g>
+                <g class="hub" data-node="alex">
+                  <circle class="hub-glow" cx="450" cy="270" r="56" fill="#5eead4" opacity="0.16" filter="url(#softglow)"/>
+                  <circle class="hub-ring" cx="450" cy="270" r="48" />
+                  <circle class="ping" cx="450" cy="270" r="40"/>
+                  <circle cx="450" cy="270" r="40" fill="url(#hub-fill)"/>
+                  <text class="hub-label" x="450" y="273" text-anchor="middle">Alex</text>
+                  <text class="hub-sub" x="450" y="289" text-anchor="middle" data-hub-sub>ONLINE</text>
+                </g>
               </svg>
 
-              <svg class="diagram-mobile" viewBox="0 0 390 500" role="img" aria-labelledby="diag-m-title diag-m-desc">
+              <svg class="diagram-mobile" viewBox="0 0 390 522" role="img" aria-labelledby="diag-m-title diag-m-desc">
                 <title id="diag-m-title">Alex’s agent team</title>
                 <desc id="diag-m-desc">Alex at the top, connected to Manager, Planner, Engineers, Code Reviewer, QA, Designer, and Product Gap Finder.</desc>
                 <defs>
@@ -1263,57 +1606,110 @@
                     <stop offset="0%" stop-color="#9af7e8" />
                     <stop offset="100%" stop-color="#5eead4" />
                   </radialGradient>
+                  <filter id="pglow-m" x="-200%" y="-200%" width="500%" height="500%">
+                    <feGaussianBlur stdDeviation="2.4" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
                 </defs>
-                <line class="spoke" x1="195" y1="78" x2="80" y2="175" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="310" y2="175" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="80" y2="270" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="310" y2="270" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="80" y2="365" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="310" y2="365" stroke="url(#spoke-grad-m)" />
-                <line class="spoke" x1="195" y1="78" x2="195.01" y2="450" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="manager" x1="195" y1="78" x2="80" y2="175" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="planner" x1="195" y1="78" x2="310" y2="175" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="engineers" x1="195" y1="78" x2="80" y2="270" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="reviewer" x1="195" y1="78" x2="310" y2="270" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="qa" x1="195" y1="78" x2="80" y2="365" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="designer" x1="195" y1="78" x2="310" y2="365" stroke="url(#spoke-grad-m)" />
+                <line class="spoke" data-to="gap" x1="195" y1="78" x2="195.01" y2="450" stroke="url(#spoke-grad-m)" />
 
-                <g>
-                  <rect x="18" y="192" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="manager">
+                  <circle class="ping" cx="80" cy="175" r="9"/>
+                  <circle class="ping p2" cx="80" cy="175" r="9"/>
+                  <rect class="pill" x="18" y="192" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="80" y="235" text-anchor="middle"></text>
                   <circle class="node-core" cx="80" cy="175" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="80" y="211" text-anchor="middle">Manager</text>
                 </g>
-                <g>
-                  <rect x="248" y="192" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="planner">
+                  <circle class="ping" cx="310" cy="175" r="9"/>
+                  <circle class="ping p2" cx="310" cy="175" r="9"/>
+                  <rect class="pill" x="248" y="192" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="310" y="235" text-anchor="middle"></text>
                   <circle class="node-core" cx="310" cy="175" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="310" y="211" text-anchor="middle">Planner</text>
                 </g>
-                <g>
-                  <rect x="18" y="287" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="engineers">
+                  <circle class="ping" cx="80" cy="270" r="9"/>
+                  <circle class="ping p2" cx="80" cy="270" r="9"/>
+                  <rect class="pill" x="18" y="287" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="80" y="330" text-anchor="middle"></text>
                   <circle class="node-core" cx="80" cy="270" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="80" y="306" text-anchor="middle">Engineers</text>
                 </g>
-                <g>
-                  <rect x="236" y="287" width="148" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="reviewer">
+                  <circle class="ping" cx="310" cy="270" r="9"/>
+                  <circle class="ping p2" cx="310" cy="270" r="9"/>
+                  <rect class="pill" x="236" y="287" width="148" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="310" y="330" text-anchor="middle"></text>
                   <circle class="node-core" cx="310" cy="270" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="310" y="306" text-anchor="middle">Code Reviewer</text>
                 </g>
-                <g>
-                  <rect x="30" y="382" width="100" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="qa">
+                  <circle class="ping" cx="80" cy="365" r="9"/>
+                  <circle class="ping p2" cx="80" cy="365" r="9"/>
+                  <rect class="pill" x="30" y="382" width="100" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="80" y="425" text-anchor="middle"></text>
                   <circle class="node-core" cx="80" cy="365" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="80" y="401" text-anchor="middle">QA</text>
                 </g>
-                <g>
-                  <rect x="248" y="382" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="designer">
+                  <circle class="ping" cx="310" cy="365" r="9"/>
+                  <circle class="ping p2" cx="310" cy="365" r="9"/>
+                  <rect class="pill" x="248" y="382" width="124" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="310" y="425" text-anchor="middle"></text>
                   <circle class="node-core" cx="310" cy="365" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="310" y="401" text-anchor="middle">Designer</text>
                 </g>
-                <g>
-                  <rect x="95" y="467" width="200" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                <g class="mnode" data-node="gap">
+                  <circle class="ping" cx="195" cy="450" r="9"/>
+                  <circle class="ping p2" cx="195" cy="450" r="9"/>
+                  <rect class="pill" x="95" y="467" width="200" height="28" rx="14" fill="#0b1220" stroke="rgba(94,234,212,0.25)"/>
+                  <text class="node-status" x="195" y="514" text-anchor="middle"></text>
                   <circle class="node-core" cx="195" cy="450" r="9" fill="#0b1220" stroke="#5eead4" stroke-width="1.8"/>
                   <text class="node-label" x="195" y="486" text-anchor="middle">Product Gap Finder</text>
                 </g>
 
-                <circle class="hub-glow" cx="195" cy="64" r="50" fill="#5eead4" opacity="0.16"/>
-                <circle class="hub-ring" cx="195" cy="64" r="44" />
-                <circle cx="195" cy="64" r="36" fill="url(#hub-fill-m)"/>
-                <text class="hub-label" x="195" y="72" text-anchor="middle" font-size="22">Alex</text>
+                <g class="packets" data-packets></g>
+                <g class="orbit-spin" style="transform-origin: 195px 64px">
+                  <circle class="orbit" cx="195" cy="64" r="56"/>
+                  <circle class="orbit-sat" cx="251" cy="64" r="2.4"/>
+                </g>
+                <g class="hub" data-node="alex">
+                  <circle class="hub-glow" cx="195" cy="64" r="50" fill="#5eead4" opacity="0.16"/>
+                  <circle class="hub-ring" cx="195" cy="64" r="44" />
+                  <circle class="ping" cx="195" cy="64" r="36"/>
+                  <circle cx="195" cy="64" r="36" fill="url(#hub-fill-m)"/>
+                  <text class="hub-label" x="195" y="66" text-anchor="middle" font-size="22">Alex</text>
+                  <text class="hub-sub" x="195" y="82" text-anchor="middle" data-hub-sub>ONLINE</text>
+                </g>
               </svg>
             </figure>
+            <aside class="agent-log" aria-label="Illustrative activity log of Alex's agent team">
+              <div class="log-head">
+                <span class="log-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="log-title" id="log-title">Alex · agentic mode</span>
+                <span class="log-live" id="log-live"><span class="live-dot" aria-hidden="true"></span><span class="live-txt">LIVE</span></span>
+              </div>
+              <div class="log-body" id="agent-log-body" aria-hidden="true"></div>
+              <div class="run-result" id="run-result" role="status">
+                <span class="rr-badge">Shipped ✓</span>
+                <div class="rr-task" id="rr-task"></div>
+                <ul class="rr-steps" id="rr-steps"></ul>
+                <div class="rr-foot">
+                  <span class="rr-meta" id="rr-meta"></span>
+                  <button type="button" class="rr-again" id="rr-again">Run another task</button>
+                </div>
+              </div>
+              <div class="log-foot"><span>7 agents online</span><span>illustrative run</span></div>
+            </aside>
+            </div>
           </div>
         </div>
       </div>
@@ -1867,6 +2263,408 @@
       }, { threshold: 0.3 });
       cio.observe(stats);
     }
+
+
+    (function agenticMode() {
+      const stage = document.getElementById("agentic-stage");
+      const logBody = document.getElementById("agent-log-body");
+      if (!stage || !logBody) return;
+      const logPanel = stage.querySelector(".agent-log");
+      const logTitle = document.getElementById("log-title");
+      const logLive = document.getElementById("log-live");
+      const liveTxt = logLive ? logLive.querySelector(".live-txt") : null;
+      const result = document.getElementById("run-result");
+      const rrTask = document.getElementById("rr-task");
+      const rrSteps = document.getElementById("rr-steps");
+      const rrMeta = document.getElementById("rr-meta");
+      const rrAgain = document.getElementById("rr-again");
+      const form = document.getElementById("tryit-form");
+      const input = document.getElementById("tryit-input");
+      const announce = document.getElementById("tryit-announce");
+      const chips = Array.from(document.querySelectorAll("#tryit .chip"));
+      const svgs = Array.from(stage.querySelectorAll("svg"));
+      const NS = "http://www.w3.org/2000/svg";
+      const coords = [
+        { alex: [450, 270], manager: [450.01, 65], planner: [610.3, 142.2], engineers: [649.9, 315.6], reviewer: [538.9, 454.7], qa: [361.1, 454.7], designer: [250.1, 315.6], gap: [289.7, 142.2] },
+        { alex: [195, 64], manager: [80, 175], planner: [310, 175], engineers: [80, 270], reviewer: [310, 270], qa: [80, 365], designer: [310, 365], gap: [195.01, 450] }
+      ];
+      const tags = { you: "you", alex: "alex", manager: "manager", planner: "planner", engineers: "engineers", reviewer: "reviewer", qa: "qa", designer: "designer", gap: "gap-finder" };
+      const views = svgs.map((svg, i) => ({
+        c: coords[i],
+        layer: svg.querySelector("[data-packets]"),
+        glow: i === 0 ? "url(#pglow)" : "url(#pglow-m)",
+        nodes: Object.fromEntries(Array.from(svg.querySelectorAll("[data-node]")).map((n) => [n.dataset.node, n])),
+        spokes: Object.fromEntries(Array.from(svg.querySelectorAll("line.spoke[data-to]")).map((l) => [l.dataset.to, l])),
+        hubSub: svg.querySelector("[data-hub-sub]")
+      }));
+
+      // ---------- presets for the simulated runs (illustrative only) ----------
+      const PRESETS = {
+        login: { steps: ["login form + validation", "auth API wiring", "session handling", "error + empty states"],
+          design: "drafting login UI", designLog: "drafted login screen + error states", build: "building auth flow", buildLog: "built login flow",
+          review: "2 review comments", reviewLog: "2 comments: rate limiting, copy", tests: 24, gap: "suggests SSO login", gapLog: "suggests SSO + magic-link sign-in" },
+        bug: { steps: ["reproduce the bug", "trace the payment flow", "patch + regression test"],
+          design: "checking error UX", designLog: "reviewed checkout error states", build: "patching checkout", buildLog: "patched checkout bug",
+          review: "1 review comment", reviewLog: "1 comment: edge case on retries", tests: 31, gap: "flags retry UX", gapLog: "flags clearer retry message on failure" },
+        pricing: { steps: ["plan tiers + copy", "pricing table UI", "monthly / annual toggle", "CTA tracking"],
+          design: "drafting tiers UI", designLog: "drafted 3-tier pricing layout", build: "building pricing UI", buildLog: "built pricing page",
+          review: "3 review comments", reviewLog: "3 comments: copy, a11y, spacing", tests: 16, gap: "suggests FAQ block", gapLog: "suggests an FAQ under the plans" },
+        gaps: { steps: ["cluster feedback themes", "rank themes by impact", "draft fixes for top 3"],
+          design: "sketching fixes", designLog: "sketched fixes for top themes", build: "prototyping top fix", buildLog: "prototyped top fix",
+          review: "1 review comment", reviewLog: "1 comment: naming", tests: 12, gap: "found 3 product gaps", gapLog: "found 3 product gaps, ranked" },
+        generic: { steps: ["scope the task", "design the approach", "build + test", "prepare release"],
+          design: "drafting the UI", designLog: "drafted the UI", build: "building it", buildLog: "built the change",
+          review: "2 review comments", reviewLog: "2 comments, both resolved", tests: 20, gap: "noted 2 improvements", gapLog: "noted 2 follow-up improvements" }
+      };
+      const PRESET_KEY = { "Build a login page": "login", "Fix a checkout bug": "bug", "Add a pricing page": "pricing", "Find product gaps from feedback": "gaps" };
+      function pickPreset(task) {
+        if (PRESET_KEY[task]) return PRESET_KEY[task];
+        const t = task.toLowerCase();
+        if (/log ?in|sign ?(in|up)|auth|password/.test(t)) return "login";
+        if (/bug|fix|error|crash|broken|issue/.test(t)) return "bug";
+        if (/pric|plan|billing|subscription/.test(t)) return "pricing";
+        if (/feedback|gap|survey|review|insight/.test(t)) return "gaps";
+        return "generic";
+      }
+      function cleanTask(raw) {
+        return String(raw || "").replace(/<[^>]*>/g, " ").replace(/[\u0000-\u001f\u007f<>]/g, "").replace(/\s+/g, " ").trim().slice(0, 60);
+      }
+
+      // ---------- log ----------
+      const pad = (n) => String(n).padStart(2, "0");
+      const stamp = () => { const d = new Date(); return pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds()); };
+      const cursor = document.createElement("span");
+      cursor.className = "log-cursor";
+      function makeLine(who, msg, cls) {
+        const row = document.createElement("div");
+        row.className = "log-line";
+        const ts = document.createElement("span");
+        ts.className = "ts";
+        ts.textContent = stamp();
+        const body = document.createElement("span");
+        const w = document.createElement("span");
+        w.className = "who" + (who === "alex" ? " alex" : who === "you" ? " you" : "");
+        w.textContent = tags[who] + " ";
+        const m = document.createElement("span");
+        m.className = "msg" + (/passed|approved|shipped/.test(msg) ? " ok" : "") + (cls ? " " + cls : "");
+        body.append(w, m);
+        row.append(ts, body);
+        logBody.appendChild(row);
+        while (logBody.children.length > 16) logBody.removeChild(logBody.firstChild);
+        return m;
+      }
+      function bootLog() {
+        logBody.textContent = "";
+        ["booting agent runtime", "loading 7 specialist agents", "team online · 7 agents"].forEach((t) => { makeLine("alex", t).textContent = t; });
+        logBody.lastChild.querySelector(".msg").after(cursor);
+      }
+      function setHeader(mode) {
+        if (logTitle) logTitle.textContent = mode === "run" ? "Alex · running task" : mode === "done" ? "Alex · task shipped" : "Alex · agentic mode";
+        if (liveTxt) liveTxt.textContent = mode === "run" ? "RUNNING" : mode === "done" ? "DONE" : "LIVE";
+        if (logLive) logLive.classList.toggle("running", mode === "run");
+      }
+
+      // ---------- build a scripted run ----------
+      let runNo = 0;
+      function buildRun(task) {
+        const p = PRESETS[pickPreset(task)];
+        const pr = 142 + runNo;
+        const n = p.steps.length;
+        const t = p.tests;
+        return {
+          p, pr, n, t,
+          steps: [
+            { pre: { node: "manager", status: "assigning task", logs: [["manager", "assigned \u201c" + task + "\u201d to alex"]] },
+              from: "manager", to: "alex", status: "ROUTING", logs: [["alex", "routing to planner"]] },
+            { from: "alex", to: "planner", status: "splitting into " + n + " steps", hold: 2600 + n * 380, dwell: 900 + n * 420,
+              logs: [["planner", "split into " + n + " steps"]].concat(p.steps.map((x, i) => ["planner", "\u21b3 " + (i + 1) + ". " + x, "sub"])) },
+            { from: "planner", to: "designer", status: p.design, logs: [["designer", p.designLog]] },
+            { from: "designer", to: "engineers", status: p.build, logs: [["engineers", p.buildLog + " \u00b7 opened PR #" + pr]] },
+            { from: "engineers", to: "reviewer", status: p.review, logs: [["reviewer", p.reviewLog]] },
+            { from: "reviewer", to: "qa", status: t + "/" + t + " tests passed", logs: [["qa", "ran " + t + " tests \u00b7 " + t + "/" + t + " passed"]] },
+            { from: "qa", to: "gap", status: p.gap, logs: [["gap", p.gapLog]] },
+            { from: "gap", to: "manager", status: "approved release", logs: [["manager", "approved release \u00b7 shipped \u2713"]] }
+          ],
+          summary: [
+            "Manager assigned the task to Alex",
+            "Planner split it into " + n + " steps",
+            "Designer " + p.designLog,
+            "Engineers opened PR #" + pr,
+            "Code Reviewer left " + p.review.replace(" review", ""),
+            "QA: " + t + "/" + t + " tests passed",
+            "Gap Finder: " + p.gap,
+            "Manager approved the release"
+          ]
+        };
+      }
+      function fillResult(task, run, secs) {
+        rrTask.textContent = "\u201c" + task + "\u201d";
+        rrSteps.textContent = "";
+        run.summary.forEach((x) => { const li = document.createElement("li"); li.textContent = x; rrSteps.appendChild(li); });
+        rrMeta.textContent = "8 handoffs \u00b7 " + secs + " \u00b7 simulated";
+      }
+      function setPressed(task) { chips.forEach((c) => c.setAttribute("aria-pressed", c.dataset.task === task ? "true" : "false")); }
+
+      // ---------- reduced motion: static idle log, instant runs ----------
+      if (reduce) {
+        logBody.textContent = "";
+        [["manager", "assigned a new task"], ["alex", "routing task \u2192 planner"], ["planner", "split task into 4 steps"],
+         ["engineers", "shipping PR #142"], ["reviewer", "2 comments, resolved"], ["qa", "18/18 tests passed"],
+         ["gap", "found 3 product gaps"], ["manager", "approved release"]].forEach(([w, m]) => { makeLine(w, m).textContent = m; });
+        const instant = (task) => {
+          task = cleanTask(task);
+          if (!task) { input.focus(); return; }
+          setPressed(task);
+          const run = buildRun(task); runNo++;
+          logBody.textContent = "";
+          makeLine("you", "").textContent = "run \u201c" + task + "\u201d";
+          run.steps.forEach((st) => { (st.pre ? st.pre.logs : []).concat(st.logs).forEach(([w, m, c]) => { makeLine(w, m, c).textContent = m; }); });
+          fillResult(task, run, "instant");
+          logPanel.classList.add("done");
+          setHeader("done");
+          if (announce) announce.textContent = "Simulated run finished: " + task + " shipped.";
+        };
+        chips.forEach((c) => c.addEventListener("click", () => instant(c.dataset.task)));
+        form.addEventListener("submit", (e) => { e.preventDefault(); instant(input.value); });
+        rrAgain.addEventListener("click", () => { logPanel.classList.remove("done"); setHeader("idle"); setPressed(""); chips[0].focus(); });
+        return;
+      }
+
+      // ---------- animation engine: a clock that only runs while visible ----------
+      let clock = 0, last = null, running = false, raf = 0, gen = 0;
+      let timers = [];
+      const at = (delay, fn) => { const g = gen; timers.push({ t: clock + delay, fn: () => { if (g === gen) fn(); } }); };
+      let typeQueue = [];
+      let packets = [];
+      let typeSpeed = 22;
+
+      function queueLine(who, msg, cls) { typeQueue.push({ who, msg, cls, el: null, i: 0, acc: 0 }); }
+
+      const activeTokens = {};
+      function activate(node, status, hold) {
+        const token = (activeTokens[node] || 0) + 1;
+        activeTokens[node] = token;
+        views.forEach((v) => {
+          const n = v.nodes[node];
+          if (!n) return;
+          if (node === "alex") { if (v.hubSub) v.hubSub.textContent = status; }
+          else { const st = n.querySelector(".node-status"); if (st) st.textContent = status; }
+          n.classList.remove("active");
+          void n.getBoundingClientRect();
+          n.classList.add("active");
+        });
+        at(hold || 2300, () => {
+          if (activeTokens[node] !== token) return;
+          deactivate(node);
+        });
+      }
+      function deactivate(node) {
+        views.forEach((v) => {
+          const n = v.nodes[node];
+          if (n) n.classList.remove("active");
+          if (node === "alex" && v.hubSub) v.hubSub.textContent = "ONLINE";
+        });
+      }
+      function hot(keys, on) {
+        views.forEach((v) => keys.forEach((k) => { if (v.spokes[k]) v.spokes[k].classList.toggle("hot", on); }));
+      }
+      function send(from, to, done) {
+        const route = from === "alex" || to === "alex" ? [from, to] : [from, "alex", to];
+        const spokeKeys = route.filter((k) => k !== "alex");
+        const dur = (route.length - 1) * 820;
+        const els = views.map((v) => {
+          const g = document.createElementNS(NS, "g");
+          const parts = [];
+          for (let i = 6; i >= 1; i--) {
+            const c = document.createElementNS(NS, "circle");
+            c.setAttribute("class", "packet-trail");
+            c.setAttribute("r", (3.9 - i * 0.4).toFixed(2));
+            c.setAttribute("opacity", (0.62 - i * 0.085).toFixed(2));
+            c.setAttribute("cx", "-50"); c.setAttribute("cy", "-50");
+            g.appendChild(c);
+            parts.push({ c, lag: i * 0.03 });
+          }
+          const head = document.createElementNS(NS, "circle");
+          head.setAttribute("class", "packet-head");
+          head.setAttribute("r", "4.4");
+          head.setAttribute("filter", v.glow);
+          head.setAttribute("cx", "-50"); head.setAttribute("cy", "-50");
+          g.appendChild(head);
+          parts.push({ c: head, lag: 0 });
+          v.layer.appendChild(g);
+          const pts = route.map((k) => v.c[k]);
+          const segs = [];
+          let total = 0;
+          for (let i = 0; i < pts.length - 1; i++) {
+            const len = Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]);
+            segs.push({ a: pts[i], b: pts[i + 1], len });
+            total += len;
+          }
+          return { g, parts, segs, total };
+        });
+        hot(spokeKeys, true);
+        const g0 = gen;
+        packets.push({ start: clock, dur, els, done: () => { hot(spokeKeys, false); if (g0 === gen && done) done(); } });
+      }
+      function pointAt(p, u) {
+        u = Math.max(0, Math.min(1, u));
+        let d = u * p.total;
+        for (const s of p.segs) {
+          if (d <= s.len || s === p.segs[p.segs.length - 1]) {
+            const k = s.len ? Math.min(1, d / s.len) : 1;
+            return [s.a[0] + (s.b[0] - s.a[0]) * k, s.a[1] + (s.b[1] - s.a[1]) * k];
+          }
+          d -= s.len;
+        }
+        return p.segs[0].a;
+      }
+
+      // Runs a list of steps; each step sends a packet and lights up the receiving agent.
+      function runSteps(steps, onDone) {
+        let i = 0;
+        function next() {
+          if (i >= steps.length) { onDone && onDone(); return; }
+          const st = steps[i];
+          if (st.pre) { activate(st.pre.node, st.pre.status, 1500); st.pre.logs.forEach((l) => queueLine.apply(null, l)); }
+          if (st.side) at(300, () => send("alex", st.side.to, () => { activate(st.side.to, st.side.status, 2600); queueLine(st.side.to, st.side.msg); }));
+          send(st.from, st.to, () => {
+            activate(st.to, st.status, st.hold);
+            st.logs.forEach((l) => queueLine.apply(null, l));
+            i++;
+            at(st.dwell || 1050, next);
+          });
+        }
+        next();
+      }
+
+      let cycle = 0;
+      function idleCycle() {
+        const pr = 142 + cycle;
+        const side = cycle % 2 === 0
+          ? { at: 2, to: "designer", status: "refining onboarding UI", msg: "refining onboarding UI" }
+          : { at: 5, to: "gap", status: "found 3 product gaps", msg: "found 3 product gaps" };
+        const steps = [
+          { from: "manager", to: "alex", pre: { node: "manager", status: "assigning new task", logs: [["manager", "assigned a new task"]] }, status: "ROUTING", logs: [["alex", "routing task \u2192 planner"]] },
+          { from: "alex", to: "planner", status: "splitting into 4 steps", logs: [["planner", "split task into 4 steps"]] },
+          { from: "planner", to: "engineers", status: "shipping PR #" + pr, logs: [["engineers", "shipping PR #" + pr]] },
+          { from: "engineers", to: "reviewer", status: "2 review comments", logs: [["reviewer", "2 comments, resolved"]] },
+          { from: "reviewer", to: "qa", status: "18/18 tests passed", logs: [["qa", "18/18 tests passed"]] },
+          { from: "qa", to: "alex", status: "MERGING", logs: [["alex", "merging results \u2192 manager"]] },
+          { from: "alex", to: "manager", status: "approved release", logs: [["manager", "approved release"]] }
+        ];
+        steps[side.at].side = side;
+        runSteps(steps, () => { cycle++; at(1600, idleCycle); });
+      }
+
+      function hardReset() {
+        gen++;
+        timers = [];
+        packets.forEach((p) => p.els.forEach((el) => el.g.remove()));
+        packets = [];
+        typeQueue.forEach((q) => { if (q.el) q.el.textContent = q.msg; });
+        typeQueue = [];
+        Object.keys(tags).forEach(deactivate);
+        views.forEach((v) => Object.values(v.spokes).forEach((l) => l.classList.remove("hot")));
+      }
+      function startIdle() {
+        hardReset();
+        typeSpeed = 22;
+        logPanel.classList.remove("done");
+        setHeader("idle");
+        bootLog();
+        at(700, idleCycle);
+      }
+      function startRun(raw) {
+        const task = cleanTask(raw);
+        if (!task) { input.focus(); return; }
+        hardReset();
+        typeSpeed = 15;
+        setPressed(task);
+        logPanel.classList.remove("done");
+        setHeader("run");
+        logBody.textContent = "";
+        const run = buildRun(task);
+        runNo++;
+        makeLine("you", "").textContent = "run \u201c" + task + "\u201d";
+        logBody.lastChild.querySelector(".msg").after(cursor);
+        if (announce) announce.textContent = "Simulated run started: " + task;
+        const t0 = clock;
+        at(500, () => runSteps(run.steps, () => {
+          at(1300, () => {
+            const secs = ((clock - t0) / 1000).toFixed(1) + "s";
+            fillResult(task, run, secs);
+            deactivate("manager");
+            logPanel.classList.add("done");
+            setHeader("done");
+            views.forEach((v) => { if (v.hubSub) v.hubSub.textContent = "SHIPPED"; });
+            if (announce) announce.textContent = "Simulated run finished: " + task + " shipped in " + secs + ".";
+          });
+        }));
+        if (!running && inView) setRunning(true);
+        if (window.matchMedia("(max-width: 800px)").matches) {
+          if (document.activeElement === input) input.blur();
+          stage.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      function frame(now) {
+        if (!running) return;
+        const dt = last == null ? 16 : Math.min(64, now - last);
+        last = now;
+        clock += dt;
+        const due = timers.filter((t) => t.t <= clock);
+        timers = timers.filter((t) => t.t > clock);
+        due.forEach((t) => t.fn());
+        for (let k = packets.length - 1; k >= 0; k--) {
+          const p = packets[k];
+          if (!p) continue;
+          const u = (clock - p.start) / p.dur;
+          const e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+          p.els.forEach((el) => el.parts.forEach(({ c, lag }) => {
+            const [x, y] = pointAt(el, e - lag);
+            c.setAttribute("cx", x.toFixed(1));
+            c.setAttribute("cy", y.toFixed(1));
+          }));
+          if (u >= 1) {
+            p.els.forEach((el) => el.g.remove());
+            packets.splice(packets.indexOf(p), 1);
+            p.done();
+          }
+        }
+        // type the log one line at a time
+        let budget = dt;
+        while (typeQueue.length && budget > 0) {
+          const q = typeQueue[0];
+          if (!q.el) { q.el = makeLine(q.who, q.msg, q.cls); q.el.after(cursor); }
+          q.acc += budget; budget = 0;
+          while (q.acc >= typeSpeed && q.i < q.msg.length) { q.acc -= typeSpeed; q.i++; }
+          q.el.textContent = q.msg.slice(0, q.i);
+          if (q.i >= q.msg.length) { budget = q.acc; typeQueue.shift(); }
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      function setRunning(on) {
+        if (on === running) return;
+        running = on;
+        stage.classList.toggle("agentic-paused", !on);
+        if (on) { last = null; raf = requestAnimationFrame(frame); }
+        else cancelAnimationFrame(raf);
+      }
+
+      chips.forEach((c) => c.addEventListener("click", () => startRun(c.dataset.task)));
+      form.addEventListener("submit", (e) => { e.preventDefault(); startRun(input.value); });
+      rrAgain.addEventListener("click", () => { setPressed(""); input.value = ""; startIdle(); chips[0].focus({ preventScroll: true }); });
+
+      let inView = false;
+      const sio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { inView = e.isIntersecting; });
+        setRunning(inView && !document.hidden);
+      }, { threshold: 0.15 });
+      sio.observe(stage);
+      document.addEventListener("visibilitychange", () => setRunning(inView && !document.hidden));
+      stage.classList.add("agentic-paused");
+      startIdle();
+    })();
 
     const toTop = document.querySelector(".to-top");
     const toggleTop = () => {
