@@ -1304,6 +1304,174 @@
       .gtm-steps { grid-template-columns: 1fr; }
     }
 
+
+    /* Mobile-only compact layout. Utilities stay hidden on desktop. */
+    .job-headline,
+    .job-toggle,
+    .work-swipe { display: none; }
+
+    @media (max-width: 720px) {
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px 0 10px;
+      }
+      .hero-copy.reveal {
+        display: contents;
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .hero-lead { order: 1; }
+      .hero .portrait-wrap {
+        order: 2;
+        justify-self: start;
+        width: min(42vw, 168px);
+      }
+      .hero .portrait {
+        height: auto;
+        aspect-ratio: 1;
+      }
+      .hero .cta { order: 3; }
+      .hero-note { order: 4; }
+      .hero .alex-card { order: 5; max-width: none; margin-top: 2px; padding: 12px 14px 12px 16px; }
+      .eyebrow { margin-bottom: 8px; }
+      h1 { font-size: 2.45rem; margin-bottom: 8px; }
+      .headline { font-size: 1.02rem; margin-bottom: 4px; }
+      .subhead { margin-bottom: 0; font-size: 0.9rem; }
+      .meta-row { margin-bottom: 8px; font-size: 0.84rem; }
+      .intro { font-size: 0.95rem; margin-bottom: 8px; line-height: 1.5; }
+      .open-to { margin-bottom: 0; }
+      .portrait-caption { font-size: 0.68rem; padding: 5px 10px; left: 8px; bottom: 8px; }
+      .btn { padding: 10px 18px; }
+
+      section { padding: 40px 0; }
+      .section-head { margin-bottom: 22px; }
+      .hero-stats { padding: 4px 0 20px; gap: 8px; }
+      .hstat { padding: 14px 12px 12px; }
+      .employers { padding: 4px 0 24px; }
+
+      .about-grid { gap: 20px; }
+      .about-copy p { margin-bottom: 10px; }
+      .about-list { gap: 8px; margin: 4px 0 12px; }
+      .project-inner { padding: 24px 18px 20px; }
+
+      .skills { gap: 7px; }
+      .skill { padding: 6px 11px; font-size: 0.78rem; }
+      .skill-group { margin-bottom: 16px; }
+
+      .work-swipe {
+        display: block;
+        margin: -6px 0 12px;
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      #work { overflow-x: hidden; }
+      #work .wrap { min-width: 0; max-width: 100%; }
+      .work-grid {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        max-width: 100%;
+        min-width: 0;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+      }
+      .work-grid::-webkit-scrollbar { height: 6px; }
+      .work-card,
+      .work-card.wide {
+        flex: 0 0 85vw;
+        width: 85vw;
+        max-width: 85vw;
+        scroll-snap-align: start;
+        grid-column: auto;
+        padding: 18px 16px 16px;
+      }
+      .work-card .result { font-size: 1.45rem; margin: 2px 0 2px; }
+      .work-card h3 { font-size: 1.08rem; }
+
+      .job-headline {
+        display: block;
+        color: var(--soft);
+        font-size: 0.9rem;
+        margin: 2px 0 0;
+      }
+      .job-toggle {
+        display: inline-flex;
+        margin-top: 2px;
+        background: none;
+        border: 0;
+        color: var(--accent);
+        font: inherit;
+        font-size: 0.86rem;
+        font-weight: 650;
+        cursor: pointer;
+        padding: 8px 0;
+        min-height: 44px;
+        align-items: center;
+        gap: 6px;
+      }
+      .job-toggle::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-right: 1.6px solid currentColor;
+        border-bottom: 1.6px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform .2s;
+        margin-top: -3px;
+      }
+      .job.is-open .job-toggle::after {
+        transform: rotate(225deg);
+        margin-top: 2px;
+      }
+      .job .job-more,
+      .job .job-details { display: none; }
+      .job.is-open .job-more,
+      .job.is-open .job-details { display: block; }
+      .job .job-more > summary { display: none; }
+      .timeline { gap: 10px; }
+      .job { padding: 12px 12px 8px; }
+      .job-top { margin-bottom: 2px; gap: 2px 10px; }
+      .job h3 { font-size: 1.02rem; }
+      .when { font-size: 0.78rem; white-space: normal; }
+      .tags { margin: 4px 0 4px; gap: 5px; }
+      .job .tag { padding: 2px 8px; font-size: 0.66rem; }
+      .job-headline { font-size: 0.86rem; line-height: 1.4; }
+      .job-summary { font-size: 0.86rem; line-height: 1.4; margin: 2px 0 0; }
+      .job-toggle {
+        position: relative;
+        min-height: 0;
+        padding: 4px 0 2px;
+        font-size: 0.82rem;
+      }
+      .job-toggle::before {
+        content: "";
+        position: absolute;
+        inset: -12px -8px;
+      }
+
+      .work-card { gap: 5px; }
+      .work-card .case { gap: 8px; margin: 2px 0; }
+      .work-card .case dd { font-size: 0.84rem; line-height: 1.45; }
+      .role-block { padding: 12px 12px 10px; }
+      .role-split { gap: 8px; }
+
+      h2 { font-size: 1.85rem; }
+      .gtm-steps { gap: 8px; }
+      .gtm-step { padding: 12px 12px 10px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .aurora span, h1 .shine, .status::before, .shine,
@@ -1350,17 +1518,21 @@
 
   <main id="top">
     <section class="wrap hero">
-      <div class="reveal">
+      <div class="reveal hero-copy">
+        <div class="hero-lead">
         <div class="eyebrow">B2B SaaS · GTM</div>
         <h1><span class="shine">Sai<br>Tamminaina</span></h1>
         <p class="headline">Product Engagement at Wavity<span class="head-break"> · </span>GTM and agentic AI workers</p>
         <p class="subhead">ITSM · Service Management · Workflow Automation · B2B SaaS</p>
+        </div>
+        <div class="hero-note">
         <div class="meta-row">
           <span>📍 Visakhapatnam, Andhra Pradesh, India</span>
           <span>💼 Wavity Inc. · Full-time · On-site</span>
         </div>
         <p class="intro">I own GTM end to end, from ICP to renewal, across US and international markets. I sell agentic AI for ITSM at Wavity, and I build agentic AI workers.<br /><strong>5+ years in B2B&nbsp;SaaS. $1M+ revenue generated. 185%&nbsp;quota attainment.</strong></p>
         <p class="open-to"><b>Open to</b> SDR leadership, GTM, and senior outbound sales roles with US-facing SaaS companies.</p>
+        </div>
         <div class="cta">
           <a class="btn btn-primary" href="mailto:tamminainasai25@gmail.com">Email me</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/ssai" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -1719,6 +1891,7 @@
       <div class="wrap">
         <div class="kicker reveal">Selected GTM work</div>
         <div class="section-head reveal"><h2>The motion, and the numbers behind it</h2></div>
+        <p class="work-swipe" aria-hidden="true">Swipe →</p>
         <div class="work-grid">
 
           <article class="work-card reveal">
@@ -1885,7 +2058,8 @@
               <span class="tag">On-site</span>
               <span class="tag">India</span>
             </div>
-            <details class="job-more" open>
+            <p class="job-headline">End-to-end outbound for an agentic AI ITSM platform into US mid-market IT leaders.</p>
+            <details class="job-more" open id="job-wavity">
               <summary>Full description</summary>
               <ul>
                 <li>Own end-to-end outbound for an agentic AI platform for ITSM and customer support, running cold calling, email and LinkedIn into US mid-market IT leaders.</li>
@@ -1895,6 +2069,7 @@
                 <li>Source ITSM channel partners for the CEO across the BMC Helix, ServiceNow and Ivanti reseller ecosystems to support partner-led growth.</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-wavity">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -1911,7 +2086,7 @@
               <span class="tag">India</span>
             </div>
             <p class="job-summary">Audited AI-generated datasets and tool outputs for accuracy, consistency and schema compliance.</p>
-            <details class="job-more" open>
+            <details class="job-more" open id="job-mercor-dq">
               <summary>Full description</summary>
               <ul>
                 <li>Audited AI-generated datasets by verifying recipe selections, ingredient lists, pricing data, and constraint compliance using structured CSV and JSON files</li>
@@ -1922,6 +2097,7 @@
                 <li>Documented findings with evidence-based reasoning to support quality assurance and dataset reliability</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-mercor-dq">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -1938,7 +2114,7 @@
               <span class="tag">Hyderabad</span>
             </div>
             <p class="job-summary">Evaluated model responses for safety, accuracy and policy compliance, and gave evidence-based feedback.</p>
-            <details class="job-more" open>
+            <details class="job-more" open id="job-mercor-safety">
               <summary>Full description</summary>
               <ul>
                 <li>Evaluated AI-generated responses for safety, accuracy, and compliance with established content and policy guidelines</li>
@@ -1949,6 +2125,7 @@
                 <li>Collaborated with reviewers and quality teams to improve annotation quality and decision accuracy</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-mercor-safety">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -1963,7 +2140,11 @@
               <span class="tag">Full-time</span>
               <span class="tag">GTM</span>
             </div>
+            <p class="job-headline">30+ clients · average deal value $499–$599.</p>
+            <div class="job-details" id="job-lv-gtm">
             <p>Led go-to-market execution for TalkingShops and Looptic.ai: acquired 30+ clients, managed the full sales cycle from discovery to close, average deal value $499–$599. Built the outbound pipeline, drove renewals, and developed repeatable sales sequences from scratch.</p>
+            </div>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-lv-gtm">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -1979,7 +2160,11 @@
               <span class="tag">Hyderabad</span>
               <span class="tag">GTM</span>
             </div>
+            <p class="job-headline">120% of targets across two performance cycles.</p>
+            <div class="job-details" id="job-lv-bd">
             <p>Led outbound sales for Odoo ERP, TalkingShops, and Looptic.ai across the US, Europe, and India. Built targeted prospect lists, managed the pipeline, and achieved 120% of targets across two performance cycles.</p>
+            </div>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-lv-bd">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -1996,7 +2181,7 @@
               <span class="tag">Hyderabad, Telangana, India</span>
             </div>
             <p class="job-summary">SaaS sales · LinkedIn Premium · North America and Europe. $260K+ in two quarters, up to 185% of target.</p>
-            <details class="job-more">
+            <details class="job-more" id="job-tdcx">
               <summary>Full description</summary>
               <ul>
                 <li>Spearheaded end-to-end SaaS sales for LinkedIn’s premium suite (Sales Navigator, Recruiter Lite, Business Premium), driving client success across diverse industries and geographies.</li>
@@ -2006,6 +2191,7 @@
                 <li>Conducted 1:1 consultative sales calls and live chat interactions, crafting tailored solutions to address client-specific growth and hiring challenges.</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-tdcx">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -2022,7 +2208,7 @@
               <span class="tag">United States</span>
             </div>
             <p class="job-summary">US outbound for SaaS and B2B clients: prospecting, SQLs, and repeatable processes.</p>
-            <details class="job-more">
+            <details class="job-more" id="job-freelance">
               <summary>Full description</summary>
               <ul>
                 <li>Prospected leads via LinkedIn Sales Navigator, targeted email campaigns, and cold calls across diverse U.S. industries.</li>
@@ -2031,6 +2217,7 @@
                 <li>Delivered high-quality SQLs for SaaS and B2B clients, building repeatable outbound processes.</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-freelance">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -2046,7 +2233,7 @@
               <span class="tag">Visakhapatnam, Andhra Pradesh, India</span>
             </div>
             <p class="job-summary">Territory sales for a leading Indian proptech firm, including go-to-market work that lifted conversion.</p>
-            <details class="job-more">
+            <details class="job-more" id="job-square">
               <summary>Full description</summary>
               <ul>
                 <li>Directed real estate sales and territory management strategies for Square Yards, a leading proptech firm in India.</li>
@@ -2055,6 +2242,7 @@
                 <li>Fostered cross-functional collaboration among sales, marketing, and operations teams for seamless deal closures.</li>
               </ul>
             </details>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-square">Read more</button>
           </article>
 
           <article class="job reveal">
@@ -2069,10 +2257,14 @@
               <span class="tag">Full-time</span>
               <span class="tag">Visakhapatnam, Andhra Pradesh, India</span>
             </div>
+            <p class="job-headline">Closed ₹2 Cr+ in revenue · led a team of 10+.</p>
+            <div class="job-details" id="job-byjus">
             <ul>
               <li>Closed ₹2 Cr+ in revenue through expert consultative selling and product demonstrations tailored to parents and students.</li>
               <li>Led and motivated a team of 10+ sales associates, achieving top-tier sales performance and earning team-wide performance bonuses.</li>
             </ul>
+            </div>
+            <button type="button" class="job-toggle" aria-expanded="false" aria-controls="job-byjus">Read more</button>
           </article>
 
         </div>
@@ -2664,6 +2856,38 @@
       document.addEventListener("visibilitychange", () => setRunning(inView && !document.hidden));
       stage.classList.add("agentic-paused");
       startIdle();
+    })();
+
+
+    (function () {
+      const mq = window.matchMedia("(max-width: 720px)");
+      const jobs = document.querySelectorAll("#experience .job");
+
+      function setOpen(job, open) {
+        const btn = job.querySelector(".job-toggle");
+        if (!btn) return;
+        job.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        const label = open ? "Read less" : "Read more";
+        btn.childNodes[0] && btn.childNodes[0].nodeType === Node.TEXT_NODE
+          ? (btn.childNodes[0].textContent = label)
+          : (btn.textContent = label);
+      }
+
+      function resetAll() {
+        jobs.forEach((job) => setOpen(job, false));
+      }
+
+      jobs.forEach((job) => {
+        const btn = job.querySelector(".job-toggle");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+          if (!mq.matches) return;
+          setOpen(job, !job.classList.contains("is-open"));
+        });
+      });
+
+      mq.addEventListener("change", () => { if (!mq.matches) resetAll(); });
     })();
 
     const toTop = document.querySelector(".to-top");
